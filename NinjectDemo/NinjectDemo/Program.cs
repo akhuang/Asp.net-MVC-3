@@ -26,8 +26,11 @@ namespace NinjectDemo
             Console.WriteLine("Total:{0:c} ", selfBindingCart.CalculateStockValue());
 
             //Self binding with parameters
-            ninjectKernel.Bind<ShoppingCart>().ToSelf().WithPropertyValue("", "");
+            //ninjectKernel.Bind<ShoppingCart>().ToSelf().WithPropertyValue("", "");
 
+            ninjectKernel.Bind<ShoppingCart>().To<LimitShoppingCart>().WithPropertyValue("ItemLimit", 200M);
+            ShoppingCart derivedTypeBindingCart = ninjectKernel.Get<ShoppingCart>();
+            Console.WriteLine("Total:{0:c} ", derivedTypeBindingCart.CalculateStockValue());
             Console.ReadKey();
         }
     }
