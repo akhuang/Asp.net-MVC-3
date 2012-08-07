@@ -21,6 +21,13 @@ namespace NinjectDemo
             ShoppingCart cart = new ShoppingCart(calcImpl);
             Console.WriteLine("Total:{0:c} ", cart.CalculateStockValue());
 
+            //Ninject SelfBinding
+            ShoppingCart selfBindingCart = ninjectKernel.Get<ShoppingCart>();
+            Console.WriteLine("Total:{0:c} ", selfBindingCart.CalculateStockValue());
+
+            //Self binding with parameters
+            ninjectKernel.Bind<ShoppingCart>().ToSelf().WithPropertyValue("", "");
+
             Console.ReadKey();
         }
     }
