@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IterativeValueCalculator.cs" />
     <Compile Include="DefaultDiscountHelper.cs" />
     <Compile Include="IDiscountHelper.cs" />
     <Compile Include="IValueCalculator.cs" />

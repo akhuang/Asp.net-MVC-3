@@ -31,6 +31,13 @@ namespace NinjectDemo
             ninjectKernel.Bind<ShoppingCart>().To<LimitShoppingCart>().WithPropertyValue("ItemLimit", 200M);
             ShoppingCart derivedTypeBindingCart = ninjectKernel.Get<ShoppingCart>();
             Console.WriteLine("Total:{0:c} ", derivedTypeBindingCart.CalculateStockValue());
+
+            //Conditional Binding Methods
+            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            ninjectKernel.Bind<IValueCalculator>()
+            .To<IterativeValueCalculator>()
+            .WhenInjectedInto<LimitShoppingCart>();
+
             Console.ReadKey();
         }
     }
