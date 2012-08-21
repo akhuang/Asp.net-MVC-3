@@ -6,10 +6,8 @@ using SportsStore.Domain.Entities;
 
 namespace SportsStore.Domain.Abstract
 {
-    public interface IProductRepository
+    public interface IOrderProcessor
     {
-        IQueryable<Product> Products { get; }
-
-        void SaveProduct(Product product);
+        void ProcessOrder(Cart cart, ShippingDetails shippingDetails);
     }
 }
