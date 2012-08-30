@@ -6,25 +6,46 @@
     To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">
         http://asp.net/mvc</a>.
 </p>
-<form id="uploadForm" action="/Home/upload" method="post" enctype="multipart/form-data">
-<input type="file" name="pic" />
+<form id="uploadForm" action="/Home/upload" method="post">
+<input type="text" id="kkd" name="kk" />
+<input type="hidden" value="kka" id="hfT" name="hf" />
+<input type="file" name="pic" id="pic" />
+<input type="submit" value="Submit" />
 </form>
 <script type="text/javascript">
     $(function () {
-        $('#uploadForm').ajaxForm(function () {
-            alert("Thank you for your comment!");
+        //        $('#uploadForm').ajaxForm(function () {
+        //            alert("Thank you for your comment!");
+        //        });
+        var options = {
+            beforeSubmit: showRequest,
+            data: { key1: "key1" }
+        };
+
+        $('#uploadForm').submit(function () {
+            $(this).ajaxSubmit(options);
+            return false;
         });
 
         $("input[type=file]").change(function () {
-
-            $('#uploadForm').ajaxSubmit({
-                success: function () {
-                    alert('s');
-                }
-            });
-
-
+            $("#uploadForm").submit();
         });
     });
+
+    function showRequest(formData, jqForm, options) {
+        // formData is an array; here we use $.param to convert it to a string to display it 
+        // but the form plugin does this for you automatically when it submits the data 
+        var queryString = $.param(formData);
+
+        // jqForm is a jQuery object encapsulating the form element.  To access the 
+        // DOM element for the form do this: 
+        // var formElement = jqForm[0]; 
+
+        alert('About to submit: \n\n' + queryString);
+
+        // here we could return false to prevent the form from being submitted; 
+        // returning anything other than false will allow the form submit to continue 
+        return true;
+    } 
  
 </script>

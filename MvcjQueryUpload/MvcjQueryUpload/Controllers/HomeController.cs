@@ -21,9 +21,12 @@ namespace MvcjQueryUpload.Controllers
         }
 
         [HttpPost]
-        public JsonResult Upload()
+        public JsonResult Upload(string key1)
         {
             HttpPostedFileBase hp = Request.Files["pic"];
+
+            hp.SaveAs("E:\\temp\\UploadFiles\\a.jpg");
+
             return new JsonResult();
         }
     }
