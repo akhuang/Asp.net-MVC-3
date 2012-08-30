@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">
+        http://asp.net/mvc</a>.
+</p>
+<form id="uploadForm" action="/Home/upload" method="post" enctype="multipart/form-data">
+<input type="file" name="pic" />
+</form>
+<script type="text/javascript">
+    $(function () {
+        $('#uploadForm').ajaxForm(function () {
+            alert("Thank you for your comment!");
+        });
+
+        $("input[type=file]").change(function () {
+
+            $('#uploadForm').ajaxSubmit({
+                success: function () {
+                    alert('s');
+                }
+            });
+
+
+        });
+    });
+ 
+</script>
