@@ -14,12 +14,14 @@
 </form>
 <script type="text/javascript">
     $(function () {
-        //        $('#uploadForm').ajaxForm(function () {
-        //            alert("Thank you for your comment!");
-        //        });
         var options = {
             beforeSubmit: showRequest,
-            data: { key1: "key1" }
+            data: { key1: "key1" },
+            success: function (data) {
+                var result = JSON.parse(data);
+                alert(result.StatusCode);
+                alert(result.Message);
+            }
         };
 
         $('#uploadForm').submit(function () {
@@ -31,7 +33,13 @@
             $("#uploadForm").submit();
         });
     });
-
+    window.onerror = reportError;
+    function reportError(msg, url, line) {
+        var str = "You have found an error as below: \n\n";
+        str += "Err: " + msg + " on line: " + line;
+        alert(str);
+        return true;
+    }
     function showRequest(formData, jqForm, options) {
         // formData is an array; here we use $.param to convert it to a string to display it 
         // but the form plugin does this for you automatically when it submits the data 

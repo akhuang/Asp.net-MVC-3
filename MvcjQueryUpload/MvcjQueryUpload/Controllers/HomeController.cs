@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace MvcjQueryUpload.Controllers
 {
@@ -27,7 +28,28 @@ namespace MvcjQueryUpload.Controllers
 
             hp.SaveAs("E:\\temp\\UploadFiles\\a.jpg");
 
-            return new JsonResult();
+            return Json(new { StatusCode = 1, Message = "Success" }, "text/html");
+        }
+
+        public ActionResult NormalUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NormalUpload(string companyName)
+        {
+            HttpPostedFileBase file = Request.Files[0];
+
+            string path = Server.MapPath("/uploadfiles/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            file.SaveAs(path + "a.jpg");
+
+            ViewBag.FilePath = path + "a.jpg";
+            return View();
         }
     }
 }
