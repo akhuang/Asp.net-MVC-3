@@ -81,7 +81,7 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\concrete\FormsAuthProvider.cs" />
-    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\LogOnViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
