@@ -1,0 +1,15 @@
+﻿@model Zing.Modules.Users.UserEntity
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+
+    <input type="submit" class="btn" value="登录" />
+}
+

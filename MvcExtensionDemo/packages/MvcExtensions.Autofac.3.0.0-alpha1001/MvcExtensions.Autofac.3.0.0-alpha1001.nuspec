@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>MvcExtensions.Autofac</id>
+    <version>3.0.0-alpha1001</version>
+    <title>MvcExtensions.Autofac</title>
+    <authors>Kazi Manzur Rashid,  hazzik</authors>
+    <owners>Kazi Manzur Rashid,  hazzik</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.NET MVC Extensions is framework developed on top of ASP.NET MVC extensibility point, which allows your IoC Container to rule everywhere.</description>
+    <dependencies>
+      <dependency id="Autofac" version="[2.6.3.862, 2.7)" />
+      <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+      <dependency id="MvcExtensions" version="[3.0.0-a, 3.1)" />
+      <dependency id="MvcExtensions.FluentMetadata" version="[3.0.0-a, 3.1)" />
+    </dependencies>
+    <references>
+      <reference file="MvcExtensions.Autofac.dll" />
+    </references>
+  </metadata>
+</package>

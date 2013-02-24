@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>MvcExtensions.FluentMetadata</id>
+    <version>3.0.0-alpha1016</version>
+    <title>MvcExtensions.FluentMetadata</title>
+    <authors>Kazi Manzur Rashid,  hazzik</authors>
+    <owners>Kazi Manzur Rashid,  hazzik</owners>
+    <projectUrl>http://mvcextensions.github.com/</projectUrl>
+    <iconUrl>http://gravatar.com/avatar/1e7a6fdfbadc6b803f5539deb6186022?s=512</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.NET MVC Extensions is framework developed on top of ASP.NET MVC extensibility point, which allows your IoC Container to rule everywhere.</description>
+    <references>
+      <reference file="MvcExtensions.FluentMetadata.dll" />
+    </references>
+  </metadata>
+</package>
