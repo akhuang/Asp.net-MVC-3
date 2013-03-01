@@ -4,3 +4,6 @@ obj
 
 # mstest test results
 TestResults
+/Autofac_Demo/Autofac_Demo.suo
+/Autofac_Demo/AutofacDemo.Core/*.user
+/MvcExtensionDemo/*.suo
