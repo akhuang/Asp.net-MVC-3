@@ -8,8 +8,20 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @RenderBody()
-
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Users And Roles</li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Roles</a></li>
+                </ul>
+            </div>
+            <div class="span10">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")

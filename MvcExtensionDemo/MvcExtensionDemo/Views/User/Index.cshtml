@@ -1,15 +1,5 @@
-﻿@model Zing.Modules.Users.UserEntity
-
+﻿@model Zing.Modules.Users.ViewModels.UserViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Users";
 }
-
-<h2>Index</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.EditorForModel()
-
-    <input type="submit" class="btn" value="登录" />
-}
-
+<a class="btn" href="user/create">添加新用户 </a>

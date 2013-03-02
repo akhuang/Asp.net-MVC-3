@@ -1,0 +1,12 @@
+﻿@model Zing.Modules.Users.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+
+    <a class="btn btn-primary">提交</a>
+}
