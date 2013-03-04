@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Zing.Modules.Users.Services;
+using Zing.Modules.Users.ViewModels;
+using Zing.Modules.Users.Models;
 
 namespace MvcExtensionDemo.Controllers
 {
     public class UserController : Controller
     {
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
         //
         // GET: /User/
 
@@ -36,12 +45,18 @@ namespace MvcExtensionDemo.Controllers
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(UserViewModel model)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                UserEntity userInfo = new UserEntity()
+                {
+                    UserName = model.UserName,
+                    NormalizedUserName = model.UserName,
+                    Password = model.UserPassword
+                };
+                _userService.Add(userInfo);
                 return RedirectToAction("Index");
             }
             catch

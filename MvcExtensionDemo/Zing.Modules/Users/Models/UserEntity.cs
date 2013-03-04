@@ -29,7 +29,7 @@ namespace Zing.Modules.Users.Models
     {
         public UserEntityMap()
         {
-            Id(x => x.Id);
+            Id(x => x.Id).GeneratedBy.Identity();
 
             Table("Users");
         }
