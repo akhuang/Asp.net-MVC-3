@@ -15,7 +15,12 @@ namespace Zing.Modules.Users.Repositories
             ISessionFactory factory = SessionFactoryHolder.CreateSessionFactory();
             using (ISession session = factory.OpenSession())
             {
-                session.SaveOrUpdate(model);
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(model);
+
+                    transaction.Commit();
+                }
             }
             return model;
         }

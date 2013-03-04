@@ -29,8 +29,11 @@ namespace Zing.Modules.Users.Models
     {
         public UserEntityMap()
         {
-            Id(x => x.Id).GeneratedBy.Identity();
+            Id(x => x.Id);
 
+            Map(x => x.UserName);
+            Map(x => x.Password);
+            Map(x => x.NormalizedUserName);
             Table("Users");
         }
     }
