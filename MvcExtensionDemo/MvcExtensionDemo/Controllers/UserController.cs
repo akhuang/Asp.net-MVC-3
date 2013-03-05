@@ -6,16 +6,23 @@ using System.Web.Mvc;
 using Zing.Modules.Users.Services;
 using Zing.Modules.Users.ViewModels;
 using Zing.Modules.Users.Models;
+using Zing.Modules.Logging;
 
 namespace MvcExtensionDemo.Controllers
 {
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        public ILogger Logger
+        {
+            get;
+            set;
+        }
 
         public UserController(IUserService userService)
         {
             _userService = userService;
+            Logger = NullLogger.Instance;
         }
         //
         // GET: /User/
@@ -38,6 +45,7 @@ namespace MvcExtensionDemo.Controllers
 
         public ActionResult Create()
         {
+            Logger.Debug("kjfkdjkfj");
             return View();
         }
 
@@ -49,6 +57,7 @@ namespace MvcExtensionDemo.Controllers
         {
             try
             {
+                Logger.Debug("kjfkdjkfj");
                 // TODO: Add insert logic here
                 UserEntity userInfo = new UserEntity()
                 {
