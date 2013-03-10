@@ -8,23 +8,212 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span2">
-                <ul class="nav nav-list">
-                    <li class="nav-header">Users And Roles</li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Roles</a></li>
+        <div class="navbar main">
+            <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=index" class="appbrand"><span>Smashing Admin</span></a>
+
+            <button type="button" class="btn btn-navbar">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+
+            <ul class="topnav pull-left tn1">
+                <li class="hidden-phone">
+                    <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#themer" data-toggle="collapse" class="glyphicons eyedropper"><i></i><span>Themer</span></a>
+                    <div id="themer" class="collapse">
+                        <div class="wrapper">
+                            <span class="close2">× close</span>
+                            <h4>Themer <span>color options</span></h4>
+                            <ul>
+                                <li>Theme:
+                                    <select id="themer-theme" class="pull-right">
+                                        <option value="0">Default</option>
+                                        <option value="1">Brown</option>
+                                        <option value="2">Purple-Gray</option>
+                                        <option value="3">Purple-Wine</option>
+                                        <option value="4">Blue-Gray</option>
+                                        <option value="5">Green Army</option>
+                                        <option value="6">Black &amp; White</option>
+                                    </select><div class="clearfix"></div>
+                                </li>
+                                <li>Primary Color: <span class="minicolors minicolors-position-left">
+                                    <input type="text" data-type="minicolors" data-default="#47759e" data-slider="hue" data-textfield="false" data-position="left" id="themer-primary-cp" size="7" maxlength="7" class="minicolors-hidden"><span class="minicolors-swatch"><span style="background-color: rgb(71, 117, 158);"></span></span><span class="minicolors-panel minicolors-slider-hue"><span class="minicolors-slider"><span class="minicolors-picker" style="top: 63.21839080459769px;"></span></span><span class="minicolors-opacity-slider"><span class="minicolors-picker"></span></span><span class="minicolors-grid" style="background-color: rgb(0, 136, 255);"><span class="minicolors-grid-inner"></span><span class="minicolors-picker" style="top: 57px; left: 83px;"><span></span></span></span></span></span><div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <span class="link" id="themer-custom-reset">reset theme</span>
+                                    <span class="pull-right">
+                                        <label>
+                                            advanced
+                                            <input type="checkbox" value="1" id="themer-advanced-toggle"></label></span>
+                                </li>
+                            </ul>
+                            <div id="themer-getcode" class="hide">
+                                <hr class="separator">
+                                <button class="btn btn-primary btn-small pull-right btn-icon glyphicons download" id="themer-getcode-less"><i></i>Get LESS</button>
+                                <button class="btn btn-inverse btn-small pull-right btn-icon glyphicons download" id="themer-getcode-css"><i></i>Get CSS</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="hidden-phone">
+                    <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#" data-toggle="dropdown">
+                        <img src="./Smashing - Premium Admin Template_files/en.png" alt="en"></a>
+                    <ul class="dropdown-menu pull-left">
+                        <li class="active"><a href="./Smashing - Premium Admin Template_files/Smashing - Premium Admin Template.htm" title="English">
+                            <img src="./Smashing - Premium Admin Template_files/en.png" alt="English">
+                            English</a></li>
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=ro&page=ui" title="Romanian">
+                            <img src="./Smashing - Premium Admin Template_files/ro.png" alt="Romanian">
+                            Romanian</a></li>
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=it&page=ui" title="Italian">
+                            <img src="./Smashing - Premium Admin Template_files/it.png" alt="Italian">
+                            Italian</a></li>
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=fr&page=ui" title="French">
+                            <img src="./Smashing - Premium Admin Template_files/fr.png" alt="French">
+                            French</a></li>
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=pl&page=ui" title="Polish">
+                            <img src="./Smashing - Premium Admin Template_files/pl.png" alt="Polish">
+                            Polish</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="topnav pull-right">
+                <li class="visible-desktop">
+                    <ul class="notif">
+                        <li><a href="" class="glyphicons envelope" data-toggle="tooltip" data-placement="bottom" data-original-title="5 new messages"><i></i>5</a></li>
+                        <li><a href="" class="glyphicons shopping_cart" data-toggle="tooltip" data-placement="bottom" data-original-title="1 new orders"><i></i>1</a></li>
+                        <li><a href="" class="glyphicons log_book" data-toggle="tooltip" data-placement="bottom" data-original-title="3 new activities"><i></i>3</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown visible-desktop">
+                    <a href="" data-toggle="dropdown" class="glyphicons cogwheel"><i></i>Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="">Some option</a></li>
+                        <li><a href="">Some other option</a></li>
+                        <li><a href="">Other option</a></li>
+                    </ul>
+                </li>
+
+                <li class="account">
+                    <a data-toggle="dropdown" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account" class="glyphicons logout lock"><span class="hidden-phone text">mosaicpro</span><i></i></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account" class="glyphicons cogwheel">Settings<i></i></a></li>
+                        <li><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account" class="glyphicons camera">My Photos<i></i></a></li>
+                        <li class="highlight profile">
+                            <span>
+                                <span class="heading">Profile <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account" class="pull-right">edit</a></span>
+                                <span class="img"></span>
+                                <span class="details">
+                                    <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account">Mosaic Pro</a>
+                                    contact@mosaicpro.biz
+								</span>
+                                <span class="clearfix"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a class="btn btn-default btn-small pull-right" style="padding: 2px 10px; background: #fff;" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=login">Sign Out</a>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="menu" class="">
+                <span class="profile">
+                    <a class="img" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account">
+                        <img src="http://www.placehold.it/51x51/" alt="Mr. Awesome"></a>
+                    <span>
+                        <strong>Mr. Awesome</strong>
+                        <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account">edit account</a>
+                    </span>
+                </span>
+                <div id="search">
+                    <input type="text" placeholder="Quick search ...">
+                    <button class="glyphicons search"><i></i></button>
+                </div>
+                <ul>
+                    <li class="hasSubmenu glyphicons home">
+                        <a data-toggle="collapse" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_index"><i></i><span>Dashboard</span></a>
+                        <ul class="collapse" id="menu_index">
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=index"><span>Dashboard v1</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=index_v2"><span>Dashboard v2</span></a></li>
+                        </ul>
+                        <span class="count">2</span>
+                    </li>
+                    <li class="hasSubmenu glyphicons cogwheels active">
+                        <a data-toggle="collapse" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_components"><i></i><span>Components</span></a>
+                        <ul class="collapse in" id="menu_components">
+                            <li class=" active"><a href="./Smashing - Premium Admin Template_files/Smashing - Premium Admin Template.htm"><span>UI Elements</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=widgets"><span>Widgets</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=charts"><span>Charts</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=tables"><span>Tables</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=grid"><span>Grid</span></a></li>
+                        </ul>
+                        <span class="count">5</span>
+                    </li>
+                    <li class="hasSubmenu">
+                        <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_forms"><i></i><span>Forms</span></a>
+                        <ul class="collapse" id="menu_forms">
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=form_wizard"><span>Form Wizard</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=form_elements"><span>Form Elements</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=form_validator"><span>Form Validator</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=file_managers"><span>File Managers</span></a></li>
+                        </ul>
+                        <span class="count">4</span>
+                    </li>
+                    <li class="glyphicons calendar"><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=calendar"><i></i><span>Calendar</span></a></li>
+                    <li class="glyphicons picture"><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=gallery"><i></i><span>Photo Gallery</span></a></li>
+                    <li class="hasSubmenu">
+                        <a data-toggle="collapse" class="glyphicons shopping_cart" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_ecommerce"><i></i><span>Online Shop</span></a>
+                        <ul class="collapse" id="menu_ecommerce">
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=products"><span>Products</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=product_edit"><span>Add product</span></a></li>
+                        </ul>
+                        <span class="count">2</span>
+                    </li>
+                    <li class="hasSubmenu glyphicons gift">
+                        <a data-toggle="collapse" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_extra"><i></i><span>Extra</span></a>
+                        <ul class="collapse" id="menu_extra">
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=login"><span>Login</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account"><span>My Account</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=bookings"><span>Bookings</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=finances"><span>Finances</span></a></li>
+                            <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=pages"><span>Site Pages</span></a></li>
+                        </ul>
+                        <span class="count">5</span>
+                    </li>
                 </ul>
+                <div class="clearfix" style="clear: both"></div>
+                <div class="separator uniformjs">
+                    <div class="innerLR">
+                        <label for="toggle-menu-position" class="checkbox">
+                            <div class="checker" id="uniform-toggle-menu-position">
+                                <span>
+                                    <input type="checkbox" class="checkbox" id="toggle-menu-position" style="opacity: 0;"></span>
+                            </div>
+                            right menu
+				
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div class="span10">
+            <div id="content">
                 @RenderBody()
+                <!-- End Content -->
             </div>
+            <!-- End Wrapper -->
         </div>
     </div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/scripts/load.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
