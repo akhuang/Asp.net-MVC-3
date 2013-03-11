@@ -1,6 +1,6 @@
 using System;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     public class NullLogger : ILogger {
         private static readonly ILogger _instance = new NullLogger();
 

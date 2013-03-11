@@ -7,7 +7,7 @@ using Autofac;
 using Autofac.Core;
 using Module = Autofac.Module;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
 
     public class LoggingModule : Module {
         private readonly ConcurrentDictionary<string, ILogger> _loggerCache;

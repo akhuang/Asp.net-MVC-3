@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Zing.Modules.Users.Services;
 using Zing.Modules.Users.ViewModels;
 using Zing.Modules.Users.Models;
-using Zing.Modules.Logging;
+using Zing.Framework.Logging;
 
 namespace MvcExtensionDemo.Controllers
 {

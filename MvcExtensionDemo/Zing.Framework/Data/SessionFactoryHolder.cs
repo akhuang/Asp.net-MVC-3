@@ -5,9 +5,8 @@ using System.Text;
 using NHibernate;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using Zing.Modules.Users.Models;
 
-namespace Zing.Modules.Data
+namespace Zing.Framework.Data
 {
     public class SessionFactoryHolder
     {
@@ -15,7 +14,7 @@ namespace Zing.Modules.Data
         {
             return Fluently.Configure()
               .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("DefaultConnection")))
-              .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserEntity>())
+              .Mappings(m => m.FluentMappings.AddFromAssemblyOf<EntityBase>())
               .BuildSessionFactory();
         }
     }

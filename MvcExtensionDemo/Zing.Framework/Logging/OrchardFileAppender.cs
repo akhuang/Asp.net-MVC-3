@@ -2,7 +2,7 @@
 using log4net.Appender;
 using log4net.Util;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     public class OrchardFileAppender : RollingFileAppender {
         /// <summary>
         /// Dictionary of already known suffixes (based on previous attempts) for a given filename.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     public enum LogLevel {
         Debug,
         Information,

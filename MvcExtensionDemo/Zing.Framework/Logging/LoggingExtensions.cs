@@ -1,6 +1,6 @@
 using System;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     public static class LoggingExtensions {
         public static void Debug(this ILogger logger, string message) {
             FilteredLog(logger, LogLevel.Debug, null, message, null);

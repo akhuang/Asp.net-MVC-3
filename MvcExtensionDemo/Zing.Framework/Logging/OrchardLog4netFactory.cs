@@ -4,7 +4,7 @@ using Castle.Core.Logging;
 using log4net;
 using log4net.Config;
 
-namespace Zing.Modules.Logging
+namespace Zing.Framework.Logging
 {
     public class OrchardLog4netFactory : AbstractLoggerFactory
     {

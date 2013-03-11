@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Security;
-using Zing.Modules.Data;
+using Zing.Framework.Data;
 using FluentNHibernate.Mapping;
 
 namespace Zing.Modules.Users.Models

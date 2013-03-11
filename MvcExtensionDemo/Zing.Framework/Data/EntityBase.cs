@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Zing.Modules.Data
+namespace Zing.Framework.Data
 {
     public abstract class EntityBase
     {

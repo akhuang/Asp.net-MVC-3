@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Zing.Modules.Users.Models;
 using NHibernate;
-using Zing.Modules.Data;
+using Zing.Framework.Data;
 
 namespace Zing.Modules.Users.Repositories
 {

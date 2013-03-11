@@ -7,7 +7,7 @@ using log4net.Util;
 
 using Logger = Castle.Core.Logging.ILogger;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     [Serializable]
     public class OrchardLog4netLogger : MarshalByRefObject, Logger {
         private static readonly Type declaringType = typeof(OrchardLog4netLogger);

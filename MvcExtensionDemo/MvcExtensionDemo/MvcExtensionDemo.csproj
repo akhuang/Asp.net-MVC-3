@@ -50,9 +50,6 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcExtensions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ee6190c4449c24bc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -267,6 +264,10 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Zing.Framework\Zing.Framework.csproj">
+      <Project>{B28292EC-84E4-4E9D-885B-ADE0AB494675}</Project>
+      <Name>Zing.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Zing.Modules\Zing.Modules.csproj">
       <Project>{ecb3100a-d841-490d-8766-452bbfc7d8d3}</Project>
       <Name>Zing.Modules</Name>

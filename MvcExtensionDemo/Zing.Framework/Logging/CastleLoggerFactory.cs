@@ -1,6 +1,6 @@
 using System;
 
-namespace Zing.Modules.Logging {
+namespace Zing.Framework.Logging {
     public class CastleLoggerFactory : ILoggerFactory {
         private readonly Castle.Core.Logging.ILoggerFactory _castleLoggerFactory;
 
