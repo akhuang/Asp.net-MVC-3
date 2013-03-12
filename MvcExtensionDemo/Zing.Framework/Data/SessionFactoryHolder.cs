@@ -5,6 +5,7 @@ using System.Text;
 using NHibernate;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using System.Reflection;
 
 namespace Zing.Framework.Data
 {
@@ -14,7 +15,7 @@ namespace Zing.Framework.Data
         {
             return Fluently.Configure()
               .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("DefaultConnection")))
-              .Mappings(m => m.FluentMappings.AddFromAssemblyOf<EntityBase>())
+              .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.Load("Zing.Modules")))
               .BuildSessionFactory();
         }
     }
