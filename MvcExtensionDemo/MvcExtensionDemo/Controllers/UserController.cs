@@ -65,12 +65,17 @@ namespace MvcExtensionDemo.Controllers
                     NormalizedUserName = model.UserName,
                     Password = model.UserPassword
                 };
-                _userService.Add(userInfo);
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    _userService.Add(userInfo);
+                    return RedirectToAction("Index");
+                }
+                return View(model);
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 
