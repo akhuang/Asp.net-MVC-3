@@ -10,6 +10,7 @@ namespace Zing.Modules.Users.ViewModels
     {
         public string UserName { get; set; }
         public string Email { get; set; }
+        public string NormalizedUserName { get; set; }
         public string UserPassword { get; set; }
         public string ConfirmPassword { get; set; }
     }
@@ -19,13 +20,18 @@ namespace Zing.Modules.Users.ViewModels
         public UserViewModelMetadata()
         {
             Configure(x => x.UserName)
-                .DisplayName("用户姓名")
+                .DisplayName("用户姓名").Order(1)
                 .Required();
 
             Configure(x => x.Email)
                 .DisplayName("Email")
                 .AsEmail()
                 .Required();
+
+            Configure(x => x.NormalizedUserName)
+                .DisplayName("用户登录名")
+                .MaximumLength(50)
+                .MinimumLength(7);
 
             Configure(x => x.UserPassword)
                 .DisplayName("密码")

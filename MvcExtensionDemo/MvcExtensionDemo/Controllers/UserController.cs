@@ -7,21 +7,22 @@ using Zing.Modules.Users.Services;
 using Zing.Modules.Users.ViewModels;
 using Zing.Modules.Users.Models;
 using Zing.Framework.Logging;
+using Zing.Framework.Security;
 
 namespace MvcExtensionDemo.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserService _userService;
+        private readonly IMembershipService _membershipService;
         public ILogger Logger
         {
             get;
             set;
         }
 
-        public UserController(IUserService userService)
+        public UserController(IMembershipService memberService)
         {
-            _userService = userService;
+            _membershipService = memberService;
             Logger = NullLogger.Instance;
         }
         //
@@ -68,13 +69,19 @@ namespace MvcExtensionDemo.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    _userService.Add(userInfo);
+                    _membershipService.CreateUser(new CreateUserParams(
+                                     model.NormalizedUserName,
+                                     model.UserName,
+                                     model.UserPassword,
+                                     model.Email));
+
                     return RedirectToAction("Index");
                 }
                 return View(model);
             }
-            catch
+            catch (Exception ex)
             {
+                ModelState.AddModelError(string.Empty, ex.Message);
                 return View(model);
             }
         }

@@ -5,12 +5,13 @@ using System.Text;
 using Zing.Modules.Users.Models;
 using NHibernate;
 using Zing.Framework.Data;
+using Zing.Framework.Security;
 
 namespace Zing.Modules.Users.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class MembershipRepository : IMembershipRepository
     {
-        public UserEntity Add(UserEntity model)
+        public IUser Add(IUser model)
         {
             ISessionFactory factory = SessionFactoryHolder.CreateSessionFactory();
             using (ISession session = factory.OpenSession())
@@ -24,5 +25,6 @@ namespace Zing.Modules.Users.Repositories
             }
             return model;
         }
+
     }
 }

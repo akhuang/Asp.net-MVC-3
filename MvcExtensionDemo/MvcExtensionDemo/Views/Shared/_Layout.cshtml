@@ -126,7 +126,7 @@
             <div id="menu" class="">
                 <span class="profile">
                     <a class="img" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account">
-                        <img src="http://www.placehold.it/51x51/" alt="Mr. Awesome"></a>
+                        @*        <img src="http://www.placehold.it/51x51/" alt="Mr. Awesome">*@</a>
                     <span>
                         <strong>Mr. Awesome</strong>
                         <a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=my_account">edit account</a>
@@ -146,15 +146,14 @@
                         <span class="count">2</span>
                     </li>
                     <li class="hasSubmenu glyphicons cogwheels active">
-                        <a data-toggle="collapse" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_components"><i></i><span>Components</span></a>
+                        <a data-toggle="collapse"><i></i><span>用户及权限管理</span></a>
                         <ul class="collapse in" id="menu_components">
-                            <li class=" active"><a href="./Smashing - Premium Admin Template_files/Smashing - Premium Admin Template.htm"><span>UI Elements</span></a></li>
+                            <li class=" active"><a href="@Url.Action("Index", "User")"><span>用户管理</span></a></li>
                             <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=widgets"><span>Widgets</span></a></li>
                             <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=charts"><span>Charts</span></a></li>
                             <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=tables"><span>Tables</span></a></li>
                             <li class=""><a href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=grid"><span>Grid</span></a></li>
                         </ul>
-                        <span class="count">5</span>
                     </li>
                     <li class="hasSubmenu">
                         <a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="http://mosaicpro.biz/smashingadmin/php/index.php?lang=en&page=ui#menu_forms"><i></i><span>Forms</span></a>

@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Zing.Framework.Security
 {
-    public interface IUser : IContent
+    public interface IContent
     {
-        string UserName { get; }
-        string Email { get; }
+        int Id { get; }
     }
 }

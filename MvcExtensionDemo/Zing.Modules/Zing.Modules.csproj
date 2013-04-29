@@ -97,10 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Models\UserEntity.cs" />
     <Compile Include="Users\Models\UserStatus.cs" />
-    <Compile Include="Users\Repositories\IUserRepository.cs" />
-    <Compile Include="Users\Repositories\UserRepository.cs" />
-    <Compile Include="Users\Services\IUserService.cs" />
-    <Compile Include="Users\Services\UserService.cs" />
+    <Compile Include="Users\Repositories\IMembershipRepository.cs" />
+    <Compile Include="Users\Repositories\MembershipRepository.cs" />
+    <Compile Include="Users\Services\MembershipService.cs" />
     <Compile Include="Users\UsersModule.cs" />
     <Compile Include="Users\ViewModels\UserViewModel.cs" />
   </ItemGroup>

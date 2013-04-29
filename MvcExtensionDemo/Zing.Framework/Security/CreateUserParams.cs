@@ -7,6 +7,7 @@ namespace Zing.Framework.Security
 {
     public class CreateUserParams
     {
+        private readonly string _normalizedUserName;
         private readonly string _username;
         private readonly string _password;
         private readonly string _email;
@@ -14,14 +15,20 @@ namespace Zing.Framework.Security
         private readonly string _passwordAnswer;
         private readonly bool _isApproved;
 
-        public CreateUserParams(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved)
+        public CreateUserParams(string normalizedUserName, string username, string password, string email)
         {
+            _normalizedUserName = normalizedUserName;
             _username = username;
             _password = password;
             _email = email;
-            _passwordQuestion = passwordQuestion;
-            _passwordAnswer = passwordAnswer;
-            _isApproved = isApproved;
+        }
+
+        public string NormalizedUserName
+        {
+            get
+            {
+                return _normalizedUserName;
+            }
         }
 
         public string Username
