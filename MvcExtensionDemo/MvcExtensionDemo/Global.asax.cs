@@ -1,6 +1,5 @@
-﻿using MvcExtensionDemo.App_Start;
-using MvcExtensions;
-using MvcExtensions.Autofac;
+﻿using Autofac;
+using MvcExtensionDemo.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +8,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac.Integration.Mvc;
+using Zing.Modules.Users;
+using Zing.Framework.UI;
 
 namespace MvcExtensionDemo
 {
@@ -19,19 +21,23 @@ namespace MvcExtensionDemo
     {
         public MvcApplication()
         {
-            Bootstrapper.Current.BootstrapperTasks
-                .Include<RegisterRoutes>()
-                .Include<RegisterControllers>()
-                .Include<RegisterModelMetadata>();
         }
 
         protected void Application_Start()
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterModule(new UsersModule());
+            builder.RegisterModule(new UIModule());
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

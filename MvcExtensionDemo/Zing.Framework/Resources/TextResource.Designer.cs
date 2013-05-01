@@ -88,6 +88,24 @@ namespace Zing.Framework.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Cannot apply email when there is a active expression. 的本地化字符串。
+        /// </summary>
+        internal static string CannotApplyEmailWhenThereIsAActiveExpression {
+            get {
+                return ResourceManager.GetString("CannotApplyEmailWhenThereIsAActiveExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cannot apply url when there is a active expression. 的本地化字符串。
+        /// </summary>
+        internal static string CannotApplyUrlWhenThereIsAActiveExpression {
+            get {
+                return ResourceManager.GetString("CannotApplyUrlWhenThereIsAActiveExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 &quot;{0}&quot; cannot be negative. 的本地化字符串。
         /// </summary>
         internal static string CannotBeNegative {
@@ -335,6 +353,34 @@ namespace Zing.Framework.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Invalid delegate reference type. 的本地化字符串。
+        /// </summary>
+        internal static string InvalidDelegateReferenceTypInvalidDelegateReferenceTypInvalidDelegateReferenceTypInvalidDelegateReferenceType {
+            get {
+                return ResourceManager.GetString("InvalidDelegateReferenceTypInvalidDelegateReferenceTypInvalidDelegateReferenceTyp" +
+                        "InvalidDelegateReferenceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Invalid email address format. 的本地化字符串。
+        /// </summary>
+        internal static string InvalidEmailAddressFormat {
+            get {
+                return ResourceManager.GetString("InvalidEmailAddressFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Invalid url format. 的本地化字符串。
+        /// </summary>
+        internal static string InvalidUrlFormat {
+            get {
+                return ResourceManager.GetString("InvalidUrlFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Item with specified source already exists. 的本地化字符串。
         /// </summary>
         internal static string ItemWithSpecifiedSourceAlreadyExists {
@@ -529,6 +575,24 @@ namespace Zing.Framework.Resources {
         internal static string StringNotCorrectTimeSpan {
             get {
                 return ResourceManager.GetString("StringNotCorrectTimeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The expression must be a valid controller action. 的本地化字符串。
+        /// </summary>
+        internal static string TheExpressionMustBeAValidControllerAction {
+            get {
+                return ResourceManager.GetString("TheExpressionMustBeAValidControllerAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The property {0}.{1} could not be found. 的本地化字符串。
+        /// </summary>
+        internal static string ThePropertyNameOfTypeCouldNotBeFound {
+            get {
+                return ResourceManager.GetString("ThePropertyNameOfTypeCouldNotBeFound", resourceCulture);
             }
         }
         

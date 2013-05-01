@@ -1,8 +1,8 @@
-﻿using MvcExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Zing.Framework.Mvc;
 
 namespace Zing.Modules.Users.ViewModels
 {
@@ -15,12 +15,12 @@ namespace Zing.Modules.Users.ViewModels
         public string ConfirmPassword { get; set; }
     }
 
-    public class UserViewModelMetadata : ModelMetadataConfiguration<UserViewModel>
+    public class UserViewModelMetadata : ModelMetadataConfigurationBase<UserViewModel>
     {
         public UserViewModelMetadata()
         {
             Configure(x => x.UserName)
-                .DisplayName("用户姓名").Order(1)
+                .DisplayName("用户姓名")
                 .Required();
 
             Configure(x => x.Email)
@@ -30,20 +30,20 @@ namespace Zing.Modules.Users.ViewModels
 
             Configure(x => x.NormalizedUserName)
                 .DisplayName("用户登录名")
-                .MaximumLength(50)
-                .MinimumLength(7);
+                .MaximumLength(50);
+            //.MinimumLength(7);
 
             Configure(x => x.UserPassword)
                 .DisplayName("密码")
                 .AsPassword()
-                .MaximumLength(50)
-                .MinimumLength(7)
-                ;
+                .MaximumLength(50);
+            //.MinimumLength(7)
+            //;
 
             Configure(x => x.ConfirmPassword)
                 .DisplayName("确认密码")
-                .AsPassword()
-                .Compare("UserPassword");
+                .AsPassword();
+            //.Compare("UserPassword");
         }
     }
 }

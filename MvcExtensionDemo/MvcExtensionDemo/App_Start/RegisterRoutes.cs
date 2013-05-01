@@ -1,5 +1,4 @@
-﻿using MvcExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,21 +7,18 @@ using System.Web.Routing;
 
 namespace MvcExtensionDemo.App_Start
 {
-    public class RegisterRoutes : RegisterRoutesBase
+    public class RegisterRoutes
     {
         public RegisterRoutes(RouteCollection routes)
-            : base(routes)
         {
-        }
+            routes.IgnoreRoute("favicon.ico");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-        protected override void Register()
-        {
-            Routes.IgnoreRoute("favicon.ico");
-            Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            Routes.MapRoute("Default",
+            routes.MapRoute("Default",
                 "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
+
+
     }
 }
