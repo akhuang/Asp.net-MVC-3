@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Web.Mvc;
 using Zing.Framework.Utility;
 using Zing.Framework.Utility.Extensions;
 
@@ -15,7 +16,12 @@ namespace Zing.Framework.UI
         {
             Guard.IsNotNull(expression, "expression");
 
+            ModelMetadata metaData = ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>());
+            Title = metaData.DisplayName;
+
             Member = expression.MemberWithoutInstance();
+
+
         }
     }
 }
