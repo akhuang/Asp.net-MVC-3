@@ -1,73 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Zing.Framework.UI.Grid.Html
 {
-    public class GridPagerData
+    public class GridItem
     {
-        //public GridPagerStyles Style
-        //{
-        //    get;
-        //    set;
-        //}
+        public GridItem()
+        {
+            HtmlAttributes = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+            DetailRowHtmlAttributes = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+        }
 
-        public int CurrentPage
+        public GridItemType Type
         {
             get;
             set;
         }
 
-        public int PageCount
+        public object DataItem
         {
             get;
             set;
         }
 
-        public string PageText
+        public int GroupLevel
         {
             get;
             set;
         }
 
-        public int Total
+        public GridItemStates State
         {
             get;
             set;
         }
 
-        public IGridUrlBuilder UrlBuilder
+        public int Index
         {
             get;
             set;
         }
 
-        public string PageOfText
+        public IDictionary<string, object> DetailRowHtmlAttributes
         {
             get;
             set;
         }
 
-        public int Colspan
+        public IDictionary<string, object> HtmlAttributes
         {
             get;
             set;
         }
 
-        public string DisplayingItemsText
+        public virtual bool Expanded
         {
             get;
             set;
         }
 
-        public int PageSize
-        {
-            get;
-            set;
-        }
-
-        public string RefreshText
+        public string DetailRowHtml
         {
             get;
             set;

@@ -32,12 +32,22 @@ namespace Zing.Framework.UI
             private set;
         }
 
+        /// <summary>
+        /// Gets the HTML attributes.
+        /// </summary>
+        /// <value>The HTML attributes.</value>
+        public IDictionary<string, object> HtmlAttributes
+        {
+            get;
+            private set;
+        }
+
         public string ToHtmlString()
         {
             using (var output = new StringWriter())
             {
                 HtmlTextWriter writer = new HtmlTextWriter(output);
-                writer.WriteLine("text from ViewComponentBuilderBase");
+                //writer.WriteLine("text from ViewComponentBuilderBase");
                 WriteHtml(writer);
                 return output.ToString();
             }

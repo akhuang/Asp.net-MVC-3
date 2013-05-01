@@ -7,12 +7,12 @@ using System.Web.UI;
 
 namespace Zing.Framework.UI
 {
-    public abstract class ViewComponentBuilderBase<TViewComponet, TBuilder>
-        where TViewComponet : ViewComponentBase
-        where TBuilder : ViewComponentBuilderBase<TViewComponet, TBuilder>
+    public abstract class ViewComponentBuilderBase<TViewComponent, TBuilder> : ComponentBuilderBase<TViewComponent, TBuilder>
+        where TViewComponent : ViewComponentBase
+        where TBuilder : ViewComponentBuilderBase<TViewComponent, TBuilder>
     {
-        private TViewComponet _component;
-        protected TViewComponet Component
+        private TViewComponent _component;
+        protected TViewComponent Component
         {
             get
             {
@@ -23,7 +23,7 @@ namespace Zing.Framework.UI
                 _component = value;
             }
         }
-        public ViewComponentBuilderBase(TViewComponet component)
+        public ViewComponentBuilderBase(TViewComponent component)
         {
             this._component = component;
         }

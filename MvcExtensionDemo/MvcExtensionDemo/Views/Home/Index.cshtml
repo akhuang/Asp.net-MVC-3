@@ -7,4 +7,14 @@
 
 @(Html.CRM().Grid<Zing.Modules.Users.Models.UserEntity>()
             .Name("Kk")
+            .Columns(columns =>
+            {
+                columns.Bound(o => o.NormalizedUserName);
+                columns.Bound(o => o.UserName);
+                columns.Bound(o => o.Email);
+            })
+)
+
+@(
+ "<div></div>"
 )

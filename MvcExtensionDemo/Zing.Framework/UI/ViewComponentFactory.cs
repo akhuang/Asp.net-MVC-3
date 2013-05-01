@@ -32,7 +32,9 @@ namespace Zing.Framework.UI
 
         public virtual GridBuilder<T> Grid<T>() where T : class
         {
-            return new GridBuilder<T>(Register(() => new Grid<T>(ViewContext, DependencyResolver.Current.GetService<IGridHtmlBuilderFactory>())));
+            //IMPORTANT
+            //Must use GridBuilder<T>.Create, or it can't render content as html
+            return GridBuilder<T>.Create(Register(() => new Grid<T>(ViewContext, DependencyResolver.Current.GetService<IGridHtmlBuilderFactory>())));
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
