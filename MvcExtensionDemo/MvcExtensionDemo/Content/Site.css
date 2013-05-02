@@ -850,3 +850,10 @@ textarea
 .menu-hidden.documentation .navbar.main .appbrand span {
   border: none;
 }
+
+.t-widget,
+* html .t-input
+{
+    border-width: 1px;
+    border-style: solid;
+}

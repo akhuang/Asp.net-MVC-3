@@ -18,11 +18,11 @@ namespace Zing.Framework.UI.Grid.Html
 
         public IHtmlNode CreateBody(GridRenderingData renderingData)
         {
-            //var enumerator = new GridDataSourceEnumerator(renderingData.DataSource, itemCreatorFactory.Create(renderingData.DataKeyStore, renderingData), renderingData.InsertRowPosition);
+            var enumerator = new GridDataSourceEnumerator(renderingData.DataSource, itemCreatorFactory.Create(renderingData.DataKeyStore, renderingData), renderingData.InsertRowPosition);
 
-            //var rowBuilders = enumerator.Select(item => rowBuilderFactory.CreateBuilder(renderingData, item));
+            var rowBuilders = enumerator.Select(item => rowBuilderFactory.CreateBuilder(renderingData, item));
 
-            var rowBuilders = new List<IGridRowBuilder>();
+            //var rowBuilders = new List<IGridRowBuilder>();
 
             return CreateBody(rowBuilders);
         }

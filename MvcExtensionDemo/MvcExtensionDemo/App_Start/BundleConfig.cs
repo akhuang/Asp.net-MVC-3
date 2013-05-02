@@ -30,7 +30,10 @@ namespace MvcExtensionDemo
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-responsive.css",
                 "~/Content/glyphicons.css",
-                "~/Content/site.css"));
+                "~/Content/site.css",
+                "~/Content/metro.common.css",
+                "~/Content/metro.css"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

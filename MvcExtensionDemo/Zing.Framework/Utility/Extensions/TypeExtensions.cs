@@ -1,4 +1,4 @@
- 
+
 namespace Zing.Framework.Utility.Extensions
 {
     using System;
@@ -45,7 +45,7 @@ namespace Zing.Framework.Utility.Extensions
             }
             return false;
         }
-        
+
         internal static string FirstSortableProperty(this Type type)
         {
             PropertyInfo firstSortableProperty = type.GetProperties().Where(property => property.PropertyType.IsPredefinedType()).FirstOrDefault();
@@ -97,7 +97,7 @@ namespace Zing.Framework.Utility.Extensions
             {
                 return 0;
             }
-            
+
             type = GetNonNullableType(type);
 
             if (type.IsEnum)
@@ -140,14 +140,14 @@ namespace Zing.Framework.Utility.Extensions
             var argumentList = arguments.ToList();
             var parameterList = parameters.ToList();
 
-            if ( argumentList.Count != parameterList.Count )
+            if (argumentList.Count != parameterList.Count)
             {
                 return false;
             }
 
             for (int i = 0; i < argumentList.Count; i++)
             {
-                if ( parameterList[i].ParameterType != argumentList[i] )
+                if (parameterList[i].ParameterType != argumentList[i])
                 {
                     return false;
                 }
@@ -319,7 +319,7 @@ namespace Zing.Framework.Utility.Extensions
         internal static MemberInfo FindPropertyOrField(this Type type, string memberName)
         {
             MemberInfo memberInfo = type.FindPropertyOrField(memberName, false);
-            
+
             if (memberInfo == null)
             {
                 memberInfo = type.FindPropertyOrField(memberName, true);
@@ -375,12 +375,12 @@ namespace Zing.Framework.Utility.Extensions
         {
             return type.IsCompatibleWith(typeof(DataRow)) || type.IsCompatibleWith(typeof(DataRowView));
         }
-#if MVC3
+
         internal static bool IsDynamicObject(this Type type)
         {
             return type == typeof(object) || type.IsCompatibleWith(typeof(System.Dynamic.IDynamicMetaObjectProvider));
         }
-#endif
+
         internal static bool IsDateTime(this Type type)
         {
             return type == typeof(DateTime) || type == typeof(DateTime?);
@@ -428,13 +428,7 @@ namespace Zing.Framework.Utility.Extensions
 
         internal static bool IsPlainType(this Type type)
         {
-            return
-
-            #if MVC3
-                !type.IsDynamicObject() &&
-            #endif
-                !type.IsDataRow() &&
-                !(type.IsCompatibleWith(typeof(ICustomTypeDescriptor)));
+            return !type.IsDynamicObject() && !type.IsDataRow() && !(type.IsCompatibleWith(typeof(ICustomTypeDescriptor)));
         }
     }
 }
