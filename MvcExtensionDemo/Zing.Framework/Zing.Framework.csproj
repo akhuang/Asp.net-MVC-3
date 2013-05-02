@@ -58,6 +58,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="MvcExtensions.FluentMetadata">
+      <HintPath>..\packages\MvcExtensions.FluentMetadata.3.0.0-alpha1018\lib\net40\MvcExtensions.FluentMetadata.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
@@ -115,40 +118,6 @@
     <Compile Include="Logging\OrchardLog4netLogger.cs" />
     <Compile Include="Mvc\Extensions\HttpRequestBaseExtensions.cs" />
     <Compile Include="Mvc\IHideObjectMembers.cs" />
-    <Compile Include="Mvc\ModelMetadata\BooleanMetadataItem.cs" />
-    <Compile Include="Mvc\ModelMetadata\BooleanMetadataItemBuilder.cs" />
-    <Compile Include="Mvc\ModelMetadata\CompositeModelMetadataProvider.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedModelMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedModelMetadataProvider.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedModelMetadataProviderBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedModelValidatorProvider.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedRangeValidator.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedRegularExpressionValidator.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedRequiredValidator.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedStringLengthValidator.cs" />
-    <Compile Include="Mvc\ModelMetadata\ExtendedValidatorBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\IModelMetadataAdditionalSetting.cs" />
-    <Compile Include="Mvc\ModelMetadata\IModelMetadataConfiguration.cs" />
-    <Compile Include="Mvc\ModelMetadata\IModelMetadataFormattableItem.cs" />
-    <Compile Include="Mvc\ModelMetadata\IModelMetadataRegistry.cs" />
-    <Compile Include="Mvc\ModelMetadata\IModelValidationMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelMetadataConfigurationBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelMetadataItemBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelMetadataItemBuilderBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelMetadataItemSelectableElementSetting.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelMetadataRegistry.cs" />
-    <Compile Include="Mvc\ModelMetadata\ModelValidationMetadataBase.cs" />
-    <Compile Include="Mvc\ModelMetadata\ObjectMetadataItem.cs" />
-    <Compile Include="Mvc\ModelMetadata\ObjectMetadataItemBuilder.cs" />
-    <Compile Include="Mvc\ModelMetadata\RangeValidationMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\RegularExpressionValidationMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\RequiredValidationMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\StringLengthValidationMetadata.cs" />
-    <Compile Include="Mvc\ModelMetadata\StringMetadataItem.cs" />
-    <Compile Include="Mvc\ModelMetadata\StringMetadataItemBuilder.cs" />
-    <Compile Include="Mvc\ModelMetadata\ValueTypeMetadataItem.cs" />
-    <Compile Include="Mvc\ModelMetadata\ValueTypeMetadataItemBuilder.cs" />
-    <Compile Include="Mvc\ModelMetadata\ValueTypeMetadataItemBuilderExtensions.cs" />
     <Compile Include="UI\ComponentBuilderBase.cs" />
     <Compile Include="UI\DynamicTypeBuilder.cs" />
     <Compile Include="UI\Grid\Html\GridDataKeyComparer.cs" />

@@ -11,6 +11,7 @@ using System.Web.Routing;
 using Autofac.Integration.Mvc;
 using Zing.Modules.Users;
 using Zing.Framework.UI;
+using MvcExtensions;
 
 namespace MvcExtensionDemo
 {
@@ -29,9 +30,14 @@ namespace MvcExtensionDemo
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterModule(new UsersModule());
             builder.RegisterModule(new UIModule());
+
+            FluentMetadataConfiguration.RegisterEachConfigurationWithContainer(r => builder.RegisterType(r.MetadataConfigurationType).As(r.InterfaceType));
+
             var container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
+            FluentMetadataConfiguration.Register();
 
             AreaRegistration.RegisterAllAreas();
 
