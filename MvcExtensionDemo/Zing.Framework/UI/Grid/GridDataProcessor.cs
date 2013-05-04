@@ -12,7 +12,9 @@ namespace Zing.Framework.UI
         private IEnumerable processedDataSource;
         private bool dataSourceIsProcessed;
         private int totalCount;
-
+        private IList<SortDescriptor> sortDescriptors;
+        private IList<IFilterDescriptor> filterDescriptors;
+        private IList<GroupDescriptor> groupDescriptors;
 
         public GridDataProcessor(IGridBindingContext bindingContext)
         {
@@ -72,6 +74,118 @@ namespace Zing.Framework.UI
             }
 
             dataSourceIsProcessed = true;
+        }
+
+        private IEnumerable GetCustomDataSource(IEnumerable dataSource)
+        {
+            var customDataSourceWrapper = dataSource as IGridCustomGroupingWrapper;
+            if (customDataSourceWrapper != null)
+            {
+                return customDataSourceWrapper.GroupedEnumerable.AsGenericEnumerable().AsQueryable();
+            }
+            return dataSource;
+        }
+
+        public int CurrentPage
+        {
+            get
+            {
+                return bindingContext.GetGridParameter<int?>(GridUrlParameters.CurrentPage) ?? bindingContext.CurrentPage;
+            }
+        }
+
+        public int PageSize
+        {
+            get
+            {
+                return bindingContext.GetGridParameter<int?>(GridUrlParameters.PageSize) ?? bindingContext.PageSize;
+            }
+        }
+
+        public IList<SortDescriptor> SortDescriptors
+        {
+            get
+            {
+                if (sortDescriptors == null)
+                {
+                    var sortExpression = bindingContext.GetGridParameter<string>(GridUrlParameters.OrderBy);
+
+                    if (sortExpression != null)
+                    {
+                        sortDescriptors = GridDescriptorSerializer.Deserialize<SortDescriptor>(sortExpression);
+                    }
+
+                    if (sortDescriptors == null)
+                    {
+                        sortDescriptors = bindingContext.SortDescriptors;
+                    }
+                }
+
+                return sortDescriptors;
+            }
+        }
+
+        public virtual IList<GroupDescriptor> GroupDescriptors
+        {
+            get
+            {
+                if (groupDescriptors == null)
+                {
+                    var groupExpression = bindingContext.GetGridParameter<string>(GridUrlParameters.GroupBy);
+
+                    if (groupExpression != null)
+                    {
+                        groupDescriptors = GridDescriptorSerializer.Deserialize<GroupDescriptor>(groupExpression);
+                    }
+
+                    if (groupDescriptors == null)
+                    {
+                        groupDescriptors = bindingContext.GroupDescriptors;
+                    }
+                }
+
+                return groupDescriptors;
+            }
+        }
+
+        public IList<IFilterDescriptor> FilterDescriptors
+        {
+            get
+            {
+                if (filterDescriptors == null)
+                {
+                    var filterExpression = bindingContext.GetGridParameter<string>(GridUrlParameters.Filter);
+
+                    if (filterExpression != null)
+                    {
+                        filterDescriptors = FilterDescriptorFactory.Create(filterExpression);
+                    }
+
+                    if (filterDescriptors == null)
+                    {
+                        filterDescriptors = bindingContext.FilterDescriptors.Cast<IFilterDescriptor>().ToList();
+                    }
+                }
+
+                return filterDescriptors;
+            }
+        }
+
+        public int PageCount
+        {
+            get
+            {
+                EnsureDataSourceIsProcessed();
+
+                var pageSize = PageSize;
+
+                if ((totalCount == 0) || (pageSize == 0))
+                {
+                    return 1;
+                }
+
+                return (totalCount + pageSize - 1) / pageSize;
+            }
         }
     }
 }

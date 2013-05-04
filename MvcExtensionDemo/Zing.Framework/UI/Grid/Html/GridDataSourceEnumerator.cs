@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Zing.Framework.Utility.Extensions;
 
 namespace Zing.Framework.UI.Grid.Html
 {
     public class GridDataSourceEnumerator : IEnumerable<GridItem>
     {
-         private readonly IEnumerable dataSource;
+        private readonly IEnumerable dataSource;
         private readonly IGridItemCreator creator;
         private readonly int groupLevel;
 
@@ -21,16 +22,16 @@ namespace Zing.Framework.UI.Grid.Html
             this.dataSource = dataSource;
         }
 
-        public GridDataSourceEnumerator(IEnumerable dataSource, IGridItemCreator creator, GridInsertRowPosition insertRowPosition) 
-        : this(dataSource, creator, 0)
+        public GridDataSourceEnumerator(IEnumerable dataSource, IGridItemCreator creator, GridInsertRowPosition insertRowPosition)
+            : this(dataSource, creator, 0)
         {
             this.insertRowPosition = insertRowPosition;
         }
-        
+
         public IEnumerator<GridItem> GetEnumerator()
         {
             int counter = 0;
-             
+
             var insertItem = creator.CreateInsertItem();
 
             if (insertItem != null && groupLevel == 0 && insertRowPosition != GridInsertRowPosition.Bottom)
@@ -38,7 +39,7 @@ namespace Zing.Framework.UI.Grid.Html
                 counter++;
                 yield return insertItem;
             }
-            
+
             if (dataSource != null)
             {
                 foreach (var dataItem in dataSource)
@@ -95,11 +96,10 @@ namespace Zing.Framework.UI.Grid.Html
                 };
             }
         }
-        
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-    }
     }
 }

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Routing;
+using Zing.Framework.UI.Grid.Html;
 using Zing.Framework.Utility.Extensions;
 
-namespace Zing.Framework.UI.Grid.Settings
+namespace Zing.Framework.UI
 {
     public interface IGridEditingSettings
     {
@@ -26,17 +27,17 @@ namespace Zing.Framework.UI.Grid.Settings
 
             DisplayDeleteConfirmation = true;
             FormHtmlAttributes = new RouteValueDictionary();
-            BeginEdit = GridBeginEditEvent.Auto;
+            //BeginEdit = GridBeginEditEvent.Auto;
             InsertRowPosition = GridInsertRowPosition.Top;
 
             DefaultDataItem = CreateDefaultItem;
         }
 
-        public GridBeginEditEvent BeginEdit
-        {
-            get;
-            set;
-        }
+        //public GridBeginEditEvent BeginEdit
+        //{
+        //    get;
+        //    set;
+        //}
 
         public GridInsertRowPosition InsertRowPosition
         {
@@ -44,17 +45,17 @@ namespace Zing.Framework.UI.Grid.Settings
             set;
         }
 
-        public Window PopUp
-        {
-            get;
-            set;
-        }
+        //public Window PopUp
+        //{
+        //    get;
+        //    set;
+        //}
 
-        public GridEditMode Mode
-        {
-            get;
-            set;
-        }
+        //public GridEditMode Mode
+        //{
+        //    get;
+        //    set;
+        //}
 
         public bool Enabled
         {
@@ -74,20 +75,19 @@ namespace Zing.Framework.UI.Grid.Settings
             set;
         }
 
-#if MVC2 || MVC3
 
         public string TemplateName
         {
-            get; 
+            get;
             set;
         }
 
-        public object AdditionalViewData 
-        { 
+        public object AdditionalViewData
+        {
             get;
-            set; 
+            set;
         }
-#endif
+
         /// <summary>
         /// Gets the HTML attributes of the form rendered during editing
         /// </summary>
@@ -101,24 +101,24 @@ namespace Zing.Framework.UI.Grid.Settings
         public IDictionary<string, object> Serialize()
         {
             var result = new Dictionary<string, object>();
-#if MVC2 || MVC3
+
             var editorHtml = grid.EditorHtml;
 
             if (editorHtml != null)
             {
                 editorHtml = editorHtml.Replace("%", "%25").Replace("<", "%3c").Replace(">", "%3e");
             }
-#endif
-            FluentDictionary.For(result)
-                .Add("confirmDelete", DisplayDeleteConfirmation, true)
-                .Add("mode", Mode.ToString())
-#if MVC2 || MVC3
-                .Add("editor", editorHtml, () => Mode != GridEditMode.InLine)
-                .Add("beginEdit", BeginEdit == GridBeginEditEvent.Click ? "click" : "dblclick", () => BeginEdit != GridBeginEditEvent.Auto)
-                .Add("defaultDataItem", SerializeDefaultDataItem(), () => grid.IsClientBinding && DefaultDataItem() != null)
-                .Add("insertRowPosition", InsertRowPosition.ToString().ToLower(), () => InsertRowPosition != GridInsertRowPosition.Top)
-#endif
-.Add("popup", SerializePopUp(), () => Mode == GridEditMode.PopUp && grid.IsClientBinding);
+
+            //            FluentDictionary.For(result)
+            //                .Add("confirmDelete", DisplayDeleteConfirmation, true)
+            //                .Add("mode", Mode.ToString())
+
+            //                .Add("editor", editorHtml, () => Mode != GridEditMode.InLine)
+            //                .Add("beginEdit", BeginEdit == GridBeginEditEvent.Click ? "click" : "dblclick", () => BeginEdit != GridBeginEditEvent.Auto)
+            //                .Add("defaultDataItem", SerializeDefaultDataItem(), () => grid.IsClientBinding && DefaultDataItem() != null)
+            //                .Add("insertRowPosition", InsertRowPosition.ToString().ToLower(), () => InsertRowPosition != GridInsertRowPosition.Top)
+
+            //.Add("popup", SerializePopUp(), () => Mode == GridEditMode.PopUp && grid.IsClientBinding);
 
             return result;
         }
@@ -155,11 +155,11 @@ namespace Zing.Framework.UI.Grid.Settings
         private IDictionary<string, object> SerializePopUp()
         {
             var result = new Dictionary<string, object>();
-            FluentDictionary.For(result)
-                .Add("title", PopUp.Title, "")
-                .Add("modal", PopUp.Modal)
-                .Add("draggable", PopUp.Modal)
-                .Add("resizable", PopUp.ResizingSettings.Enabled);
+            //FluentDictionary.For(result)
+            //    .Add("title", PopUp.Title, "")
+            //    .Add("modal", PopUp.Modal)
+            //    .Add("draggable", PopUp.Modal)
+            //    .Add("resizable", PopUp.ResizingSettings.Enabled);
 
             return result;
         }
@@ -178,10 +178,10 @@ namespace Zing.Framework.UI.Grid.Settings
                 writer.AppendObject("editing", editing);
             }
 
-            if (grid.IsClientBinding)
-            {
-                writer.AppendObject("dataKeys", grid.DataKeys.ToDictionary(dataKey => dataKey.Name, dataKey => (object)dataKey.RouteKey));
-            }
+            //if (grid.IsClientBinding)
+            //{
+            //    writer.AppendObject("dataKeys", grid.DataKeys.ToDictionary(dataKey => dataKey.Name, dataKey => (object)dataKey.RouteKey));
+            //}
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExtensionDemo", "MvcExtensionDemo\MvcExtensionDemo.csproj", "{0C44817E-ACC2-4F81-94E9-9EFE3AF77966}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zing.Modules", "Zing.Modules\Zing.Modules.csproj", "{ECB3100A-D841-490D-8766-452BBFC7D8D3}"

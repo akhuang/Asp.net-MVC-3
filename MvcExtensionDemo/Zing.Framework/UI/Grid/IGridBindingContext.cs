@@ -36,20 +36,20 @@ namespace Zing.Framework.UI
             get;
         }
 
-        //IList<GroupDescriptor> GroupDescriptors
-        //{
-        //    get;
-        //}
+        IList<GroupDescriptor> GroupDescriptors
+        {
+            get;
+        }
 
-        //IList<SortDescriptor> SortDescriptors
-        //{
-        //    get;
-        //}
+        IList<SortDescriptor> SortDescriptors
+        {
+            get;
+        }
 
-        //IList<CompositeFilterDescriptor> FilterDescriptors
-        //{
-        //    get;
-        //}
+        IList<CompositeFilterDescriptor> FilterDescriptors
+        {
+            get;
+        }
 
         //IEnumerable<AggregateDescriptor> Aggregates
         //{
