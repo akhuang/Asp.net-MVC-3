@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Zing.Framework.Utility.Extensions;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
+    using System.Collections.Generic;
+    using Zing.Framework.Utility.Extensions;
+    using Zing.Framework.Mvc;
+    using System.Web.Mvc;
+    
     public class GridTableBuilder : IGridTableBuilder
     {
         private readonly IEnumerable<GridColData> colsData;
@@ -39,13 +41,13 @@ namespace Zing.Framework.UI.Grid.Html
         {
             if (hidden) return;
 
-            var col = new HtmlElement("col", TagRenderMode.SelfClosing);
+            var col = new HtmlElement("col",TagRenderMode.SelfClosing);            
 
             if (columnWidth.HasValue())
             {
                 col.Css("width", columnWidth);
             }
-
+            
             col.AppendTo(colgroup);
         }
 

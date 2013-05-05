@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Linq.Expressions;
+
     internal class PropertyAccessExpressionBuilder : MemberAccessExpressionBuilderBase
     {
-        public PropertyAccessExpressionBuilder(Type itemType, string memberName)
-            : base(itemType, memberName)
+        public PropertyAccessExpressionBuilder(Type itemType, string memberName) : base(itemType, memberName)
         {
         }
 

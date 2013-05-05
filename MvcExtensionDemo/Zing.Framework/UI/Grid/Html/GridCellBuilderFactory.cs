@@ -1,21 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
+    using System.Collections.Generic;
+    using Zing.Framework.Mvc;
+    using Zing.Framework.UI;
+
     public class GridCellBuilderFactory : IGridCellBuilderFactory
     {
+        public IGridDataCellBuilder CreateDisplayCellBuilder(IGridColumn column, IGridHtmlHelper htmlHelper)
+        {
+            return column.CreateDisplayBuilder(htmlHelper);
+        }
+
+        public IGridDataCellBuilder CreateEditCellBuilder(IGridColumn column, IGridHtmlHelper htmlHelper)
+        {
+            return column.CreateEditBuilder(htmlHelper);
+        }
+
+        public IGridDataCellBuilder CreateInsertCellBuilder(IGridColumn column, IGridHtmlHelper htmlHelper)
+        {
+            return column.CreateInsertBuilder(htmlHelper);
+        }
+
         public IGridCellBuilder CreateHeaderCellBuilder(IGridColumn column)
         {
             return column.CreateHeaderBuilder();
         }
-
-
-        public IGridDataCellBuilder CreateDisplayCellBuilder(IGridColumn column, IGridHtmlHelper htmlHelper)
+        
+        public IGridCellBuilder CreateFooterCellBuilder(IGridColumn column, IEnumerable<AggregateResult> aggregatesResults)
         {
-            return column.CreateDisplayCellBuilder();
+            return column.CreateFooterBuilder(aggregatesResults);
+        }
+
+        public IGridCellBuilder CreateGroupFooterCellBuilder(IGridColumn column, IEnumerable<AggregateResult> aggregatesResults)
+        {
+            return column.CreateGroupFooterBuilder(aggregatesResults);
         }
     }
 }

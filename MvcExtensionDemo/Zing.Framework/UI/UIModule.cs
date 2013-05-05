@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Zing.Framework.UI.Grid.Html;
+using Zing.Framework.Localize;
+using Zing.Framework.Mvc;
+using Zing.Framework.UI.Html;
 
 namespace Zing.Framework.UI
 {
@@ -14,8 +16,25 @@ namespace Zing.Framework.UI
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
+            builder.RegisterType<ClientSideObjectWriterFactory>().As<IClientSideObjectWriterFactory>();
+            builder.RegisterType<VirtualPathProviderWrapper>().As<IVirtualPathProvider>();
+            builder.RegisterType<PathResolver>().As<IPathResolver>();
 
+            builder.RegisterType<UrlGenerator>().As<IUrlGenerator>();
+
+            builder.RegisterType<LocalizationService>().As<ILocalizationService>();
+            builder.RegisterType<LocalizationServiceFactory>().As<ILocalizationServiceFactory>();
             builder.RegisterType<GridHtmlBuilder>().As<IGridHtmlBuilder>();
+            builder.RegisterType<GridGroupHeaderBuilder>().As<IGridGroupHeaderBuilder>();
+            builder.RegisterType<GridToolBarBuilder>().As<IGridToolBarBuilder>();
+            builder.RegisterType<GridPagerButtonFactory>().As<IGridPagerButtonFactory>();
+            builder.RegisterType<GridPagerNumericSectionBuilder>().As<IGridPagerNumericSectionBuilder>();
+            builder.RegisterType<GridPagerInputSectionBuilder>().As<IGridPagerInputBuilder>();
+            builder.RegisterType<GridPagerPageSizeSection>().As<IGridPagerPageSizeSection>();
+
+
+
+
             builder.RegisterType<ViewComponentFactory>();
             builder.RegisterType<GridHtmlBuilderFactory>().As<IGridHtmlBuilderFactory>();
             builder.RegisterType<GridDataSectionBuilder>().As<IGridDataSectionBuilder>();

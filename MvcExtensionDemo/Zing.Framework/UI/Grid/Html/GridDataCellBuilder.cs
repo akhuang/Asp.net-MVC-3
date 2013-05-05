@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Zing.Framework.Utility.Extensions;
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
+    using System;
+    using Zing.Framework.Utility.Extensions;
+
     public class GridDataCellBuilder<TModel, TValue> : GridDataCellBuilderBase, IGridFormatableCellBuilder
-       where TModel : class
+        where TModel : class
     {
         public Func<TModel, TValue> Value
         {

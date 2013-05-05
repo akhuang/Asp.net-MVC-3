@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
     public interface IGridFunctionalSectionBuilder
     {
-        //IHtmlNode CreateToolBar(GridToolBarData toolBarData);
-
-        //IHtmlNode CreateGroupHeader(GridGroupingData renderingData);
-
+        IHtmlNode CreateToolBar(GridToolBarData toolBarData);
+        
+        IHtmlNode CreateGroupHeader(GridGroupingData renderingData);
+        
         IHtmlNode CreatePager(GridPagerData pagerSection);
 
         IHtmlNode CreateRefreshButton(GridPagerData pagerData);

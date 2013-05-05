@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using Zing.Framework.Mvc.Expressions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.Linq.Expressions;
+    using Zing.Framework.Mvc;
+    using Zing.Framework.Mvc.Expressions;
+
     /// <summary>
     /// Represents declarative filtering.
     /// </summary>
@@ -15,8 +18,7 @@ namespace Zing.Framework.UI
         /// <summary>
         /// Initializes a new instance of the <see cref="FilterDescriptor"/> class.
         /// </summary>
-        public FilterDescriptor()
-            : this(string.Empty, FilterOperator.IsEqualTo, null)
+        public FilterDescriptor() : this(string.Empty, FilterOperator.IsEqualTo, null)
         {
         }
 
@@ -94,7 +96,7 @@ namespace Zing.Framework.UI
 
             return builder.CreateBodyExpression();
         }
-
+        
         /// <summary>
         /// Determines whether the specified <paramref name="other"/> descriptor 
         /// is equal to the current one.
@@ -115,9 +117,9 @@ namespace Zing.Framework.UI
                 return true;
             }
 
-            return
-                Equals(other.Operator, this.Operator) &&
-                Equals(other.Member, this.Member) &&
+            return 
+                Equals(other.Operator, this.Operator) && 
+                Equals(other.Member, this.Member) && 
                 Equals(other.Value, this.Value);
         }
 
@@ -128,7 +130,7 @@ namespace Zing.Framework.UI
         public override bool Equals(object obj)
         {
             var other = obj as FilterDescriptor;
-            if (other == null)
+            if ( other == null )
             {
                 return false;
             }

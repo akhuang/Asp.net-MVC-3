@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using Zing.Framework.Utility.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Data;
+    using System.Linq.Expressions;
+    using System.Reflection;
+
+    using Zing.Framework.Utility.Extensions;
     internal class DataRowFieldAccessExpressionBuilder : MemberAccessExpressionBuilderBase
     {
         private readonly Type columnDataType;
@@ -16,8 +18,7 @@ namespace Zing.Framework.Mvc.Expressions
         private static readonly MethodInfo DataRowFieldMethod =
             typeof(DataRowExtensions).GetMethod("Field", new[] { typeof(DataRow), typeof(string) });
 
-        public DataRowFieldAccessExpressionBuilder(Type memberType, string memberName)
-            : base(typeof(DataRow), memberName)
+        public DataRowFieldAccessExpressionBuilder(Type memberType, string memberName) : base(typeof(DataRow), memberName)
         {
             //Handle value types for null and DBNull.Value support converting them to Nullable<>
             if (memberType.IsValueType && !memberType.IsNullableType())

@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GridItem
     {
         public GridItem()
@@ -25,7 +29,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         public int GroupLevel
         {
-            get;
+            get; 
             set;
         }
 
@@ -37,7 +41,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         public int Index
         {
-            get;
+            get; 
             set;
         }
 
@@ -45,8 +49,8 @@ namespace Zing.Framework.UI.Grid.Html
         {
             get;
             set;
-        }
-
+        }        
+        
         public IDictionary<string, object> HtmlAttributes
         {
             get;

@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web.Routing;
-using Zing.Framework.UI.Grid.Html;
-using Zing.Framework.Utility.Extensions;
-
+﻿// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using System.Web.Routing;
+    using Zing.Framework.Mvc;
+    using Zing.Framework.Utility.Extensions;
+
     public interface IGridEditingSettings
     {
         bool Enabled
@@ -27,17 +31,17 @@ namespace Zing.Framework.UI
 
             DisplayDeleteConfirmation = true;
             FormHtmlAttributes = new RouteValueDictionary();
-            //BeginEdit = GridBeginEditEvent.Auto;
+            BeginEdit = GridBeginEditEvent.Auto;
             InsertRowPosition = GridInsertRowPosition.Top;
 
             DefaultDataItem = CreateDefaultItem;
         }
 
-        //public GridBeginEditEvent BeginEdit
-        //{
-        //    get;
-        //    set;
-        //}
+        public GridBeginEditEvent BeginEdit
+        {
+            get;
+            set;
+        }
 
         public GridInsertRowPosition InsertRowPosition
         {
@@ -51,11 +55,11 @@ namespace Zing.Framework.UI
         //    set;
         //}
 
-        //public GridEditMode Mode
-        //{
-        //    get;
-        //    set;
-        //}
+        public GridEditMode Mode
+        {
+            get;
+            set;
+        }
 
         public bool Enabled
         {
@@ -109,16 +113,14 @@ namespace Zing.Framework.UI
                 editorHtml = editorHtml.Replace("%", "%25").Replace("<", "%3c").Replace(">", "%3e");
             }
 
-            //            FluentDictionary.For(result)
-            //                .Add("confirmDelete", DisplayDeleteConfirmation, true)
-            //                .Add("mode", Mode.ToString())
+            FluentDictionary.For(result)
+                .Add("confirmDelete", DisplayDeleteConfirmation, true)
+                .Add("mode", Mode.ToString())
 
-            //                .Add("editor", editorHtml, () => Mode != GridEditMode.InLine)
-            //                .Add("beginEdit", BeginEdit == GridBeginEditEvent.Click ? "click" : "dblclick", () => BeginEdit != GridBeginEditEvent.Auto)
-            //                .Add("defaultDataItem", SerializeDefaultDataItem(), () => grid.IsClientBinding && DefaultDataItem() != null)
-            //                .Add("insertRowPosition", InsertRowPosition.ToString().ToLower(), () => InsertRowPosition != GridInsertRowPosition.Top)
-
-            //.Add("popup", SerializePopUp(), () => Mode == GridEditMode.PopUp && grid.IsClientBinding);
+                .Add("editor", editorHtml, () => Mode != GridEditMode.InLine)
+                .Add("beginEdit", BeginEdit == GridBeginEditEvent.Click ? "click" : "dblclick", () => BeginEdit != GridBeginEditEvent.Auto)
+                .Add("defaultDataItem", SerializeDefaultDataItem(), () => grid.IsClientBinding && DefaultDataItem() != null)
+                .Add("insertRowPosition", InsertRowPosition.ToString().ToLower(), () => InsertRowPosition != GridInsertRowPosition.Top).Add("popup", SerializePopUp(), () => Mode == GridEditMode.PopUp && grid.IsClientBinding);
 
             return result;
         }
@@ -178,10 +180,10 @@ namespace Zing.Framework.UI
                 writer.AppendObject("editing", editing);
             }
 
-            //if (grid.IsClientBinding)
-            //{
-            //    writer.AppendObject("dataKeys", grid.DataKeys.ToDictionary(dataKey => dataKey.Name, dataKey => (object)dataKey.RouteKey));
-            //}
+            if (grid.IsClientBinding)
+            {
+                writer.AppendObject("dataKeys", grid.DataKeys.ToDictionary(dataKey => dataKey.Name, dataKey => (object)dataKey.RouteKey));
+            }
         }
     }
 

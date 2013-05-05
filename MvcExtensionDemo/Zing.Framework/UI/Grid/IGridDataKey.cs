@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System.Web.Mvc;
+
     public interface IGridDataKey
     {
         string Name
@@ -26,5 +27,6 @@ namespace Zing.Framework.UI
             where T : class
     {
         string HiddenFieldHtml(HtmlHelper<T> htmlHelper);
+
     }
 }

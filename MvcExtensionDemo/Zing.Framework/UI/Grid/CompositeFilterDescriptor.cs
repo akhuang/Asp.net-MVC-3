@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq.Expressions;
+  
+    using Zing.Framework.Mvc.Expressions;
+    using Zing.Framework.Mvc;
+
     /// <summary>
     /// Represents a filtering descriptor which serves as a container for one or more child filtering descriptors.
     /// </summary>

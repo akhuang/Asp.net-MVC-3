@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using Zing.Framework.Utility.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System.ComponentModel;
+    using System.Linq;
+    using Zing.Framework.Utility.Extensions;
     /// <summary>
     /// Represents declarative sorting.
     /// </summary>
@@ -35,18 +36,18 @@ namespace Zing.Framework.UI
 
         public void Deserialize(string source)
         {
-            var parts = source.Split(new[] { '-' });
-
+            var parts = source.Split(new [] { '-' });
+            
             if (parts.Length > 1)
             {
                 Member = parts[0];
             }
 
             var sortDirection = parts.Last();
-
+            
             SortDirection = sortDirection == "desc" ? ListSortDirection.Descending : ListSortDirection.Ascending;
         }
-
+        
         public string Serialize()
         {
             return "{0}-{1}".FormatWith(Member, SortDirection == ListSortDirection.Ascending ? "asc" : "desc");

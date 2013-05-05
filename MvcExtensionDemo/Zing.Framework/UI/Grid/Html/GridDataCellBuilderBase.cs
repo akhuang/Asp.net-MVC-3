@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Zing.Framework.Utility.Extensions;
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
+    using System;
+    using System.Collections.Generic;
+    using Zing.Framework.Utility.Extensions;
+    
     public abstract class GridDataCellBuilderBase : IGridDataCellBuilder
     {
         public GridDataCellBuilderBase()
@@ -13,13 +16,13 @@ namespace Zing.Framework.UI.Grid.Html
             Decorators = new List<IGridCellBuilderDecorator>();
             HtmlAttributes = new Dictionary<string, object>();
         }
-
+        
         public IDictionary<string, object> HtmlAttributes
         {
             get;
             private set;
         }
-
+        
         public IHtmlNode CreateCell(object dataItem)
         {
             Callback(dataItem);
@@ -56,7 +59,7 @@ namespace Zing.Framework.UI.Grid.Html
             get;
             set;
         }
-
+        
         public string Html
         {
             get;

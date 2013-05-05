@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GridHeaderCellBuilder : IGridCellBuilder
     {
         private readonly Action<IHtmlNode> appendContent;
@@ -13,7 +15,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         private readonly bool hasTemplate;
 
-        public GridHeaderCellBuilder(IDictionary<string, object> htmlAttributes, Action<IHtmlNode> appendContent, bool hasTemplate = false)
+        public GridHeaderCellBuilder(IDictionary<string, object> htmlAttributes, Action<IHtmlNode> appendContent, bool hasTemplate)
         {
             this.htmlAttributes = htmlAttributes;
 
@@ -21,18 +23,18 @@ namespace Zing.Framework.UI.Grid.Html
 
             this.hasTemplate = hasTemplate;
 
-            //Decorators = new List<IGridCellBuilderDecorator>();
+            Decorators = new List<IGridCellBuilderDecorator>();
         }
 
         public GridHeaderCellBuilder(IDictionary<string, object> htmlAttributes, Action<IHtmlNode> appendContent)
         {
             this.htmlAttributes = htmlAttributes;
-
+            
             this.appendContent = appendContent;
 
             this.hasTemplate = false;
 
-            //Decorators = new List<IGridCellBuilderDecorator>();
+            Decorators = new List<IGridCellBuilderDecorator>();
         }
 
         public virtual IHtmlNode CreateCell()
@@ -50,38 +52,38 @@ namespace Zing.Framework.UI.Grid.Html
                 AppendContent(th);
             }
 
-            //Decorate(th);
+            Decorate(th);
 
             return th;
         }
 
-        //public ICollection<IGridCellBuilderDecorator> Decorators
-        //{
-        //    get;
-        //    private set;
-        //}
-
+        public ICollection<IGridCellBuilderDecorator> Decorators
+        {
+            get;
+            private set;
+        }
+        
         protected void AppendContent(IHtmlNode container)
         {
             appendContent(container);
         }
-
+        
         protected IHtmlNode CreateContainer()
         {
             var th = new HtmlElement("th")
                     .Attribute("scope", "col")
                     .Attributes(htmlAttributes)
                     .PrependClass(UIPrimitives.Header);
-
+            
             return th;
         }
-
-        //protected void Decorate(IHtmlNode th)
-        //{
-        //    foreach (var decorator in Decorators)
-        //    {
-        //        decorator.Decorate(th);
-        //    }
-        //}
+        
+        protected void Decorate(IHtmlNode th)
+        {
+            foreach (var decorator in Decorators)
+            {
+                decorator.Decorate(th);
+            }
+        }
     }
 }

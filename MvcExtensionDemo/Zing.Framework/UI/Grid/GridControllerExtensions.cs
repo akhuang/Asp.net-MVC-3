@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Helpers;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.Globalization;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using System.Collections.Generic;
+    using System.Web;
+
+    using System.Web.Helpers;
+
 
     public static class GridControllerExtensions
     {

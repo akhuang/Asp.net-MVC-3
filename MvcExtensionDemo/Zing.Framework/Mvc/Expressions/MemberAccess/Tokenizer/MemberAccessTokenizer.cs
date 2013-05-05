@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     internal static class MemberAccessTokenizer
     {
         public static IEnumerable<IMemberAccessToken> GetTokens(string memberPath)
@@ -49,11 +53,11 @@ namespace Zing.Framework.Mvc.Expressions
 
         private static IEnumerable<string> ExtractIndexerArguments(string member)
         {
-            var args = member.TrimEnd(']');
-            foreach (var arg in args.Split(','))
-            {
-                yield return arg;
-            }
+             var args = member.TrimEnd(']');
+             foreach (var arg in args.Split(','))
+             {
+                 yield return arg;
+             }
         }
 
         private static object ConvertIndexerArgument(string argument)

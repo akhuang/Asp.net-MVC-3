@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using Zing.Framework.UI;
-using Zing.Framework.Utility.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Globalization;
+    using System.Linq.Expressions;
+    using Zing.Framework.UI;
+    using Zing.Framework.Utility.Extensions;
+
     internal class FilterDescriptorExpressionBuilder : FilterExpressionBuilder
     {
         private readonly FilterDescriptor descriptor;
@@ -89,8 +91,8 @@ namespace Zing.Framework.Mvc.Expressions
 
             var memberAccessBuilder =
                             ExpressionBuilderFactory.MemberAccess(this.ParameterExpression.Type, memberType, this.FilterDescriptor.Member);
-            memberAccessBuilder.Options.CopyFrom(this.Options);
-
+            memberAccessBuilder.Options.CopyFrom(this.Options); 
+            
             memberAccessBuilder.ParameterExpression = this.ParameterExpression;
 
             Expression memberAccessExpression = memberAccessBuilder.CreateMemberAccessExpression();

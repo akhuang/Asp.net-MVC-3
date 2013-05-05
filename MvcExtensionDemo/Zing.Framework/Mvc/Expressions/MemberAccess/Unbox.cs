@@ -1,9 +1,14 @@
-﻿using System;
-using System.Globalization;
-using System.Reflection;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Globalization;
+    using System.Reflection;
+
     internal static class UnboxT<T>
     {
         internal static readonly Converter<object, T> Unbox = Create(typeof(T));
@@ -18,8 +23,8 @@ namespace Zing.Framework.Mvc.Expressions
             {
                 MethodInfo nullableFieldMethod = typeof(UnboxT<T>).GetMethod("NullableField", BindingFlags.NonPublic | BindingFlags.Static);
                 MethodInfo genericMethod = nullableFieldMethod.MakeGenericMethod(new[] { type.GetGenericArguments()[0] });
-
-                return (Converter<object, T>)Delegate.CreateDelegate(typeof(Converter<object, T>), genericMethod);
+                
+                return (Converter<object, T>) Delegate.CreateDelegate(typeof(Converter<object, T>), genericMethod);
             }
             return ValueField;
         }
@@ -37,7 +42,7 @@ namespace Zing.Framework.Mvc.Expressions
         {
             if (DBNull.Value != value)
             {
-                return (T)value;
+                return (T) value;
             }
             return default(T);
         }
@@ -50,7 +55,7 @@ namespace Zing.Framework.Mvc.Expressions
                 throw new InvalidCastException(
                     string.Format(CultureInfo.CurrentCulture, "Type: {0} cannot be casted to Nullable type", typeof(T)));
             }
-            return (T)value;
+            return (T) value;
         }
     }
 }

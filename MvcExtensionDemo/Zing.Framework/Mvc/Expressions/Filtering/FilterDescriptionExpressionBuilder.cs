@@ -1,9 +1,13 @@
-﻿using System.Linq.Expressions;
-using System.Reflection;
-using Zing.Framework.UI;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System.Linq.Expressions;
+    using System.Reflection;
+
     internal class FilterDescriptionExpressionBuilder : FilterExpressionBuilder
     {
         private readonly FilterDescription filterDescription;
@@ -16,8 +20,7 @@ namespace Zing.Framework.Mvc.Expressions
             }
         }
 
-        public FilterDescriptionExpressionBuilder(ParameterExpression parameterExpression, FilterDescription filterDescription)
-            : base(parameterExpression)
+        public FilterDescriptionExpressionBuilder(ParameterExpression parameterExpression, FilterDescription filterDescription) : base(parameterExpression)
         {
             this.filterDescription = filterDescription;
         }
@@ -34,7 +37,7 @@ namespace Zing.Framework.Mvc.Expressions
 
         protected virtual Expression CreateActiveFilterExpression()
         {
-            return this.CreateSatisfiesFilterExpression();
+            return this.CreateSatisfiesFilterExpression();            
         }
 
         private MethodCallExpression CreateSatisfiesFilterExpression()

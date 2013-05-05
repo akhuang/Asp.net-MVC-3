@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Web;
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.Linq.Expressions;
+    using System.Web;
+    using Zing.Framework.Mvc;
+    
     public abstract class ComponentBuilderBase<TComponent, TBuilder>
         where TBuilder : class
         where TComponent : class

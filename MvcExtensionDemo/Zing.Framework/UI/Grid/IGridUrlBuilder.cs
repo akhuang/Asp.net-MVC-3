@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Routing;
-
+﻿// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Routing;
+
     public interface IGridUrlBuilder
     {
         string SelectUrl();
@@ -15,11 +19,11 @@ namespace Zing.Framework.UI
         string CancelUrl(object dataItem);
 
         string EditUrl(object dataItem);
-
+        
         string AddUrl(object dataItem);
-
+        
         string InsertUrl(object dataItem);
-
+        
         string UpdateUrl(object dataItem);
 
         string DeleteUrl(object dataItem);

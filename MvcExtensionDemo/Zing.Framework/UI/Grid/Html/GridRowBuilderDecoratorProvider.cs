@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+﻿namespace Zing.Framework.UI.Html
 {
+    using Zing.Framework.UI;
+    using System;
+    using System.Collections.Generic;
+
     internal class GridRowBuilderDecoratorProvider : IGridRowBuilderDecoratorProvider
     {
         private readonly IEnumerable<Func<IGridRowBuilderDecorator>> decorators;
@@ -17,13 +16,13 @@ namespace Zing.Framework.UI.Grid.Html
         public GridRowBuilderDecoratorProvider()
             : this(new List<Func<IGridRowBuilderDecorator>>
                        {
-                           () => new GridDataRowBuilderDecorator()//,
-                           //() => new GridGroupRowBuilderDecorator(),
-                           //() => new GridDetailRowBuilderDecorator(),
-                           //() => new GridAlternatingRowBuilderDecorator(),
-                           //() => new GridMasterRowBuilderDecorator(),
-                           //() => new GridEditRowBuilderDecorator(),
-                           //() => new GridSelectedRowBuilderDecorator()
+                           () => new GridDataRowBuilderDecorator(),
+                           () => new GridGroupRowBuilderDecorator(),
+                           () => new GridDetailRowBuilderDecorator(),
+                           () => new GridAlternatingRowBuilderDecorator(),
+                           () => new GridMasterRowBuilderDecorator(),
+                           () => new GridEditRowBuilderDecorator(),
+                           () => new GridSelectedRowBuilderDecorator()
                        })
         {
         }

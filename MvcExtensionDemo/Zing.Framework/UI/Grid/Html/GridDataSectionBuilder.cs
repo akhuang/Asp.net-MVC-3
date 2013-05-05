@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Zing.Framework.UI;
+
     public class GridDataSectionBuilder : IGridDataSectionBuilder
     {
         private readonly IGridRowBuilderFactory rowBuilderFactory;
@@ -22,8 +25,6 @@ namespace Zing.Framework.UI.Grid.Html
 
             var rowBuilders = enumerator.Select(item => rowBuilderFactory.CreateBuilder(renderingData, item));
 
-            //var rowBuilders = new List<IGridRowBuilder>();
-
             return CreateBody(rowBuilders);
         }
 
@@ -40,7 +41,7 @@ namespace Zing.Framework.UI.Grid.Html
 
             return tbody;
         }
-
+        
         public IHtmlNode CreateHeader(GridRenderingData data)
         {
             var builder = rowBuilderFactory.CreateHeaderBuilder(data);
@@ -51,7 +52,7 @@ namespace Zing.Framework.UI.Grid.Html
         public IHtmlNode CreateFooter(GridRenderingData data)
         {
             var builder = rowBuilderFactory.CreateFooterBuilder(data);
-            var tr = builder.CreateRow();
+            var tr = builder.CreateRow(); 
 
             tr.AddClass(UIPrimitives.Grid.FooterTemplateRow);
             return tr;

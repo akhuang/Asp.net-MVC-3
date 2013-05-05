@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-
+﻿// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 namespace Zing.Framework.UI
 {
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Zing.Framework.Mvc;
+
     public interface IGrid : IGridBindingContext
     {
         bool HasDetailView
@@ -10,27 +15,111 @@ namespace Zing.Framework.UI
             get;
         }
 
-        //GridPagingSettings Paging
-        //{
-        //    get;
-        //}
+        GridPagingSettings Paging
+        {
+            get;
+        }
+
+        GridSortSettings Sorting
+        {
+            get;
+        }
+
+        GridScrollingSettings Scrolling
+        {
+            get;
+        }
+
+        GridKeyboardNavigationSettings KeyboardNavigation
+        {
+            get;
+        }
+
+        GridColumnContextMenuSettings ColumnContextMenu
+        {
+            get;
+        }
 
         bool IsSelfInitialized
         {
             get;
         }
-
-        string EditorHtml
+ 
+        string EditorHtml 
+        { 
+            get; 
+        }
+ 
+        GridResizingSettings Resizing
+        {
+            get;
+        }        
+        
+        GridReorderingSettings Reordering
         {
             get;
         }
 
+        GridDataProcessor DataProcessor 
+        { 
+            get;
+        }
 
-        GridDataProcessor DataProcessor
+        GridFilteringSettings Filtering
         {
             get;
         }
 
+        GridGroupingSettings Grouping
+        {
+            get;
+        }
 
+        GridBindingSettings Server
+        {
+            get;
+        }
+
+        IGridEditingSettings Editing 
+        { 
+            get; 
+        }
+
+        bool IsClientBinding
+        {
+            get;
+        }
+
+        IUrlGenerator UrlGenerator
+        {
+            get;
+        }
+
+        IGridUrlBuilder UrlBuilder
+        {
+            get;
+        }
+
+        ViewContext ViewContext
+        {
+            get;
+        }
+
+        IEnumerable<IGridColumn> Columns
+        {
+            get;
+        }
+
+        IEnumerable<IGridDataKey> DataKeys
+        {
+            get;
+        }
+
+        bool IsEmpty
+        {
+            get;
+        }
+
+        void SerializeDataSource(IClientSideObjectWriter writer);
     }
 }

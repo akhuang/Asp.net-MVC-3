@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
     public class GridHtmlBuilderFactory : IGridHtmlBuilderFactory
     {
@@ -13,7 +12,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         private readonly IGridTableBulderFactory tableBuilderFactory;
 
-        public GridHtmlBuilderFactory(IGridFunctionalSectionBuilder functionalSectionBuilder, IGridDataSectionBuilder dataSectionBuilder,
+        public GridHtmlBuilderFactory(IGridFunctionalSectionBuilder functionalSectionBuilder, IGridDataSectionBuilder dataSectionBuilder, 
             IGridTableBulderFactory tableBuilderFactory)
         {
             this.tableBuilderFactory = tableBuilderFactory;
@@ -23,6 +22,11 @@ namespace Zing.Framework.UI.Grid.Html
 
         public IGridHtmlBuilder CreateBuilder(bool scrollable)
         {
+            if (scrollable)
+            {
+                return new GridScrollingHtmlBuilder(functionalSectionBuilder, dataSectionBuilder, tableBuilderFactory);
+            }
+
             return new GridHtmlBuilder(functionalSectionBuilder, dataSectionBuilder, tableBuilderFactory);
         }
     }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
     public interface IGridCellBuilderDecorator
     {

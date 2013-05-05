@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Zing.Framework.UI.Grid.Html
+// (c) Copyright 2002-2009 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
+namespace Zing.Framework.UI.Html
 {
+    using Zing.Framework.Mvc;
+    using Zing.Framework.UI;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Zing.Framework.Mvc;
+    
     public class GridRenderingData : IGridItemCreatorData
     {
         public IHtmlNode PopUpContainer
@@ -26,10 +31,10 @@ namespace Zing.Framework.UI.Grid.Html
             set;
         }
 
-        public IGridLocalization Localization
-        {
-            get;
-            set;
+        public IGridLocalization Localization 
+        { 
+            get; 
+            set; 
         }
 
         public IGridDataKeyStore DataKeyStore
@@ -38,10 +43,10 @@ namespace Zing.Framework.UI.Grid.Html
             set;
         }
 
-        public IGridUrlBuilder UrlBuilder
-        {
-            get;
-            set;
+        public IGridUrlBuilder UrlBuilder 
+        { 
+            get; 
+            set; 
         }
 
         public IGridHtmlHelper HtmlHelper
@@ -49,7 +54,7 @@ namespace Zing.Framework.UI.Grid.Html
             get;
             set;
         }
-
+        
         public IEnumerable DataSource
         {
             get;
@@ -88,7 +93,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         public int Colspan
         {
-            get;
+            get; 
             set;
         }
 
@@ -130,14 +135,14 @@ namespace Zing.Framework.UI.Grid.Html
 
         public bool ShowGroupFooter
         {
-            get;
+            get; 
             set;
         }
 
-        public string FormId
-        {
-            get;
-            set;
+        public string FormId 
+        { 
+            get; 
+            set; 
         }
 
         public IDictionary<string, object> EditFormHtmlAttributes
@@ -172,7 +177,7 @@ namespace Zing.Framework.UI.Grid.Html
 
         public int GroupsCount
         {
-            get;
+            get; 
             set;
         }
 

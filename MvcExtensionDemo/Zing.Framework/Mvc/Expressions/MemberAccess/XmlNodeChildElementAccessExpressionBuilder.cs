@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Xml;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using System.Xml;
 
     internal class XmlNodeChildElementAccessExpressionBuilder : MemberAccessExpressionBuilderBase
     {
         private static readonly MethodInfo ChildElementInnerTextMethod =
             typeof(XmlNodeExtensions).GetMethod("ChildElementInnerText", new[] { typeof(XmlNode), typeof(string) });
 
-        public XmlNodeChildElementAccessExpressionBuilder(string memberName)
-            : base(typeof(XmlNode), memberName)
+        public XmlNodeChildElementAccessExpressionBuilder(string memberName) : base(typeof(XmlNode), memberName)
         {
         }
 

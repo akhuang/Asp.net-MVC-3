@@ -1,10 +1,15 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Reflection;
-using Zing.Framework.Utility.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using Zing.Framework.Utility.Extensions;
+
     internal static class ExpressionFactory
     {
         public static ConstantExpression ZeroExpression
@@ -113,9 +118,9 @@ namespace Zing.Framework.Mvc.Expressions
 
         private static Expression ExtractMemberAccessExpressionFromLiftedExpression(Expression liftedToNullExpression)
         {
-            while (liftedToNullExpression.NodeType == ExpressionType.Conditional)
+            while(liftedToNullExpression.NodeType == ExpressionType.Conditional)
             {
-                var conditional = (ConditionalExpression)liftedToNullExpression;
+                var conditional = (ConditionalExpression) liftedToNullExpression;
 
                 if (conditional.Test.NodeType == ExpressionType.NotEqual)
                 {
@@ -138,7 +143,7 @@ namespace Zing.Framework.Mvc.Expressions
                 throw new ArgumentException("Provided expression should have string type", "stringExpression");
             }
 
-            if (IsNotNullConstantExpression(stringExpression))
+            if(IsNotNullConstantExpression(stringExpression))
             {
                 return stringExpression;
             }
@@ -150,7 +155,7 @@ namespace Zing.Framework.Mvc.Expressions
         {
             if (expression.NodeType == ExpressionType.Constant)
             {
-                var constantExpression = (ConstantExpression)expression;
+                var constantExpression = (ConstantExpression) expression;
                 return constantExpression.Value != null;
             }
 

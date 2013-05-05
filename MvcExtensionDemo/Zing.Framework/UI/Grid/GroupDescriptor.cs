@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System;
+    using System.ComponentModel;
+	 
+    using Zing.Framework.Mvc;
+    
     /// <summary>
     /// Represents grouping criteria.
     /// </summary>
     public class GroupDescriptor : SortDescriptor
     {
         private object displayContent;
-        //private AggregateFunctionCollection aggregateFunctions;
+        private AggregateFunctionCollection aggregateFunctions;
 
         /// <summary>
         /// Gets or sets the type of the member that is used for grouping.
@@ -45,17 +49,17 @@ namespace Zing.Framework.UI
             }
         }
 
-        ///// <summary>
-        ///// Gets or sets the aggregate functions used when grouping is executed.
-        ///// </summary>
-        ///// <value>The aggregate functions that will be used in grouping.</value>
-        //public AggregateFunctionCollection AggregateFunctions
-        //{
-        //    get
-        //    {
-        //        return aggregateFunctions = aggregateFunctions ?? new AggregateFunctionCollection();
-        //    }
-        //}
+        /// <summary>
+        /// Gets or sets the aggregate functions used when grouping is executed.
+        /// </summary>
+        /// <value>The aggregate functions that will be used in grouping.</value>
+        public AggregateFunctionCollection AggregateFunctions
+        {
+            get
+            {
+                return aggregateFunctions = aggregateFunctions ?? new AggregateFunctionCollection();
+            }
+        }
 
         /// <summary>
         /// Changes the <see cref="SortDescriptor"/> to the next logical value.

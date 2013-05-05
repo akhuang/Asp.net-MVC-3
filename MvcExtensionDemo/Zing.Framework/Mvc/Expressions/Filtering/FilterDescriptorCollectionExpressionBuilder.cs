@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using Zing.Framework.UI;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using Zing.Framework.UI;
 
     internal class FilterDescriptorCollectionExpressionBuilder : FilterExpressionBuilder
     {
@@ -13,7 +17,7 @@ namespace Zing.Framework.Mvc.Expressions
         public FilterDescriptorCollectionExpressionBuilder(ParameterExpression parameterExpression, IEnumerable<IFilterDescriptor> filterDescriptors)
             : this(parameterExpression, filterDescriptors, FilterCompositionLogicalOperator.And)
         {
-
+            
         }
 
         public FilterDescriptorCollectionExpressionBuilder(
@@ -56,15 +60,15 @@ namespace Zing.Framework.Mvc.Expressions
             switch (logicalOperator)
             {
                 case FilterCompositionLogicalOperator.Or:
-                    {
-                        return Expression.OrElse(left, right);
-                    }
+                {
+                    return Expression.OrElse(left, right);
+                }
 
                 case FilterCompositionLogicalOperator.And:
                 default:
-                    {
-                        return Expression.AndAlso(left, right);
-                    }
+                {
+                    return Expression.AndAlso(left, right);
+                }
             }
         }
 

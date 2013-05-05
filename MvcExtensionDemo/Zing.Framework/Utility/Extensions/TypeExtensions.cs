@@ -1,4 +1,7 @@
-
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 namespace Zing.Framework.Utility.Extensions
 {
     using System;
@@ -7,6 +10,7 @@ namespace Zing.Framework.Utility.Extensions
     using System.Data;
     using System.Linq;
     using System.Reflection;
+    using Zing.Framework.Utility.Extensions;
     using Zing.Framework.Resources;
 
     internal static class TypeExtensions
@@ -428,7 +432,11 @@ namespace Zing.Framework.Utility.Extensions
 
         internal static bool IsPlainType(this Type type)
         {
-            return !type.IsDynamicObject() && !type.IsDataRow() && !(type.IsCompatibleWith(typeof(ICustomTypeDescriptor)));
+            return
+
+
+                !type.IsDynamicObject() && !type.IsDataRow() &&
+                !(type.IsCompatibleWith(typeof(ICustomTypeDescriptor)));
         }
     }
 }

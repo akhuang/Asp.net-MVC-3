@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Data;
+    using Zing.Framework.UI;
 
     public interface IGridModel
     {
@@ -14,7 +16,7 @@ namespace Zing.Framework.UI
         {
             get;
         }
-
+        
         IEnumerable Data
         {
             get;
@@ -59,7 +61,7 @@ namespace Zing.Framework.UI
         {
             get;
             set;
-        }
+        } 
     }
 
     public class GridModel<T> : IGridModel
@@ -88,7 +90,7 @@ namespace Zing.Framework.UI
 
         IEnumerable IGridModel.Data
         {
-            get
+            get 
             {
                 return Data;
             }
@@ -100,6 +102,6 @@ namespace Zing.Framework.UI
             get;
             set;
         }
-
+        
     }
 }

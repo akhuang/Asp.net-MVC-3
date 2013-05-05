@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
-namespace Zing.Framework.UI.Grid.Html
+namespace Zing.Framework.UI.Html
 {
     public class GridPagerBuilder : IGridPagerBuilder
     {
@@ -11,7 +11,7 @@ namespace Zing.Framework.UI.Grid.Html
         private readonly IGridPagerRefreshBuilder refreshBuilder;
         private readonly IGridPagerStatusBuilder statusBuilder;
 
-        public GridPagerBuilder(IGridPagerSectionsBuilder pagerSections,
+        public GridPagerBuilder(IGridPagerSectionsBuilder pagerSections, 
             IGridPagerRefreshBuilder refreshBuilder, IGridPagerStatusBuilder statusBuilder)
         {
             this.pagerSections = pagerSections;
@@ -23,14 +23,14 @@ namespace Zing.Framework.UI.Grid.Html
         {
             var fragment = new HtmlFragment();
 
-
+            
             pagerSections.CreateSections(section).AppendTo(fragment);
 
             statusBuilder.Create(section).AppendTo(fragment);
 
             return fragment;
         }
-
+        
         public IHtmlNode CreateRefreshButton(GridPagerData pagerData)
         {
             return refreshBuilder.Create(pagerData.UrlBuilder.SelectUrl(), pagerData.RefreshText);

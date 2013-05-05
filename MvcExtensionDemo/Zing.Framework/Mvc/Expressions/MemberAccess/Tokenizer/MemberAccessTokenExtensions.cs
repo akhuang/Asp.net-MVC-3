@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
+
+    using Zing.Framework.Utility.Extensions;
+
     internal static class MemberAccessTokenExtensions
     {
         /// <exception cref="ArgumentException">
@@ -25,7 +32,7 @@ namespace Zing.Framework.Mvc.Expressions
             if (indexerToken != null)
             {
                 var arguments = indexerToken.GetIndexerArguments();
-                return Expression.Call(instance, (MethodInfo)memberInfo, arguments);
+                return Expression.Call(instance, (MethodInfo) memberInfo, arguments);
             }
 
             // Property or field
@@ -47,7 +54,7 @@ namespace Zing.Framework.Mvc.Expressions
             {
                 memberType = "indexer with arguments";
 
-                var argumentsAsString = ((IndexerToken)token).Arguments.Where(a => a != null).Select(a => a.ToString());
+                var argumentsAsString = ((IndexerToken) token).Arguments.Where(a => a != null).Select(a => a.ToString());
                 memberName = string.Join(",", argumentsAsString.ToArray());
             }
 
@@ -56,7 +63,7 @@ namespace Zing.Framework.Mvc.Expressions
 
         private static IEnumerable<Expression> GetIndexerArguments(this IndexerToken indexerToken)
         {
-            return indexerToken.Arguments.Select(a => (Expression)Expression.Constant(a));
+            return indexerToken.Arguments.Select(a => (Expression) Expression.Constant(a));
         }
 
         /// <exception cref="InvalidOperationException"><c>InvalidOperationException</c>.</exception>
@@ -88,7 +95,7 @@ namespace Zing.Framework.Mvc.Expressions
             if (indexerPropertyInfo != null)
             {
                 return indexerPropertyInfo.GetGetMethod();
-
+                
             }
 
             return null;

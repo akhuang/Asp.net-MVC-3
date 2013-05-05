@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using Zing.Framework.Utility.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using Zing.Framework.Utility.Extensions;
+
     internal class IndexerToken : IMemberAccessToken
     {
         private readonly ReadOnlyCollection<object> arguments;
@@ -16,8 +18,7 @@ namespace Zing.Framework.Mvc.Expressions
             this.arguments = arguments.ToReadOnlyCollection();
         }
 
-        public IndexerToken(params object[] arguments)
-            : this((IEnumerable<object>)arguments)
+        public IndexerToken(params object[] arguments) : this((IEnumerable<object>) arguments)
         {
         }
 

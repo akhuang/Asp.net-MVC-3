@@ -1,13 +1,17 @@
-﻿using System;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Xml;
-using Zing.Framework.Utility.Extensions;
-using Zing.Framework.Mvc.Extensions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Linq;
+    using System.Xml;
+    using Zing.Framework.Utility.Extensions;
+
     internal static class ExpressionBuilderFactory
     {
         public static MemberAccessExpressionBuilderBase MemberAccess(Type elementType, Type memberType, string memberName)
@@ -28,7 +32,6 @@ namespace Zing.Framework.Mvc.Expressions
             {
                 return new XmlNodeChildElementAccessExpressionBuilder(memberName);
             }
-
 
             if (elementType == typeof(object) || elementType.IsCompatibleWith(typeof(System.Dynamic.IDynamicMetaObjectProvider)))
             {

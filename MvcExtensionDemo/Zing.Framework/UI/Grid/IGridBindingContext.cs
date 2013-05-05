@@ -1,9 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.UI
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
     public interface IGridBindingContext
     {
         IEnumerable DataSource
@@ -51,10 +56,10 @@ namespace Zing.Framework.UI
             get;
         }
 
-        //IEnumerable<AggregateDescriptor> Aggregates
-        //{
-        //    get;
-        //}
+        IEnumerable<AggregateDescriptor> Aggregates
+        {
+            get;
+        }
 
         string Prefix(string parameter);
     }

@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Mvc.Expressions
 {
+    using System;
+    using System.ComponentModel;
+    using System.Globalization;
+    /// <exclude/>
+    /// <excludeToc/>
+    
     internal static class CustomTypeDescriptorExtensions
     {
         /// <exception cref="ArgumentException"><c>ArgumentException</c>.</exception>
@@ -15,7 +19,7 @@ namespace Zing.Framework.Mvc.Expressions
         {
             var propertyDescriptor = TypeDescriptor.GetProperties(typeDescriptor)[propertyName];
 
-            if (propertyDescriptor == null)
+            if ( propertyDescriptor == null )
             {
                 string message = string.Format(
                     CultureInfo.CurrentCulture, "Property with specified name: {0} cannot be found on type: {1}",

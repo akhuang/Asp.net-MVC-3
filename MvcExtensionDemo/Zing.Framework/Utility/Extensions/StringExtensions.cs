@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+// (c) Copyright 2002-2010 Telerik 
+// This source is subject to the GNU General Public License, version 2
+// See http://www.gnu.org/licenses/gpl-2.0.html. 
+// All other rights reserved.
 
 namespace Zing.Framework.Utility.Extensions
 {
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.IO.Compression;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Zing.Framework.Mvc;
+
     /// <summary>
     /// Contains the extension methods of <see cref="string"/>.
     /// </summary>
@@ -98,7 +102,7 @@ namespace Zing.Framework.Utility.Extensions
             Guard.IsNotNullOrEmpty(instance, "instance");
 
             var compressed = Decode(instance);
-
+            
             if (compressed.Length < 4)
             {
                 return string.Empty;
@@ -118,7 +122,7 @@ namespace Zing.Framework.Utility.Extensions
                     try
                     {
                         zip.Read(binary, 0, binary.Length);
-
+                        
                         return Encoding.UTF8.GetString(binary);
                     }
                     catch (InvalidDataException)

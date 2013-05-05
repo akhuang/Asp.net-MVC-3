@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Zing.Framework.UI.Grid.Html;
+using Zing.Framework.UI.Html;
 using Zing.Framework.Utility;
 
 namespace Zing.Framework.UI
@@ -15,7 +15,9 @@ namespace Zing.Framework.UI
         {
             Guard.IsNotNull(helper, "helper");
 
-            return new ViewComponentFactory<TModel>(helper);
+            IClientSideObjectWriterFactory clientSideObjectWriterFactory = DependencyResolver.Current.GetService<IClientSideObjectWriterFactory>();
+
+            return new ViewComponentFactory<TModel>(helper, clientSideObjectWriterFactory);
 
             //return DependencyResolver.Current.GetService<ViewComponentFactory<TModel>>();
 
