@@ -5,7 +5,7 @@
 
 <h2>Index</h2>
 
-@(Html.CRM().Grid<Zing.Modules.Users.ViewModels.UserViewModel>()
+@(Html.CRM().Grid
             .Name("Kk")
             .Columns(columns =>
             {
@@ -13,6 +13,9 @@
                 columns.Bound(o => o.UserName);
                 columns.Bound(o => o.Email);
             })
+            .DataBinding(dataBinding => dataBinding.Server())
+            .Pageable(paging => paging.Enabled(true))
+            .Resizable(resizing => resizing.Columns(true))
 )
 
 @(
