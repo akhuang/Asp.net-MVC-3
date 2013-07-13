@@ -2,22 +2,17 @@
 @{
     ViewBag.Title = "Sports Store:Your cart";
 }
-<h2>
-    Your cart</h2>
+<h2>Your cart</h2>
 <table width="90%" align="center">
     <thead>
         <tr>
-            <th align="center">
-                Quantity
+            <th align="center">Quantity
             </th>
-            <th align="left">
-                Item
+            <th align="left">Item
             </th>
-            <th align="right">
-                Price
+            <th align="right">Price
             </th>
-            <th align="right">
-                Subtotal
+            <th align="right">Subtotal
             </th>
         </tr>
     </thead>
@@ -46,8 +41,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" align="right">
-                Total:
+            <td colspan="3" align="right">Total:
             </td>
             <td align="right">
                 @Model.Cart.ComputeTotalValue().ToString("c")
@@ -59,3 +53,21 @@
     <a href="@Model.ReturnUrl">Continue shopping</a>
     @Html.ActionLink("Checkout now", "Checkout")
 </p>
+
+<div>
+    <input type="button" id="btnAjax" value="TestAjax" />
+</div>
+<script>
+    $(function () {
+        $("#btnAjax").click(function () {
+            $.ajax("http://www.google.com.hk")
+             .done(function (data) {
+                 alert(data);
+             })
+            .fail(function (data) {
+                debugger;
+                alert(data.statusText);
+            });
+        });
+    });
+</script>
